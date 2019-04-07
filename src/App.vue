@@ -3,7 +3,7 @@ v-app#app
     v-navigation-drawer(app temporary v-model='drawer')
     v-toolbar(app color='primary' dark)
         v-toolbar-side-icon(@click.stop='drawer = !drawer')
-        v-toolbar-title C language exercise
+        v-toolbar-title Clang exercise
 
     v-content#content
         router-view
