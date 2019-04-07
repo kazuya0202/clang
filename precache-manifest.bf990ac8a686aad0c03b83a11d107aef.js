@@ -48,12 +48,12 @@ self.__precacheManifest = [
     "url": "/fonts/Roboto-Light.d26871e8.woff2"
   },
   {
-    "revision": "90d1676003d9c28c04994c18bfd8b558",
-    "url": "/fonts/Roboto-Medium.90d16760.woff2"
-  },
-  {
     "revision": "73f0a88bbca1bec19fb1303c689d04c6",
     "url": "/fonts/Roboto-Regular.73f0a88b.woff2"
+  },
+  {
+    "revision": "90d1676003d9c28c04994c18bfd8b558",
+    "url": "/fonts/Roboto-Medium.90d16760.woff2"
   },
   {
     "revision": "b52fac2bb93c5858f3f2675e4b52e1de",
@@ -76,12 +76,12 @@ self.__precacheManifest = [
     "url": "/fonts/Roboto-ThinItalic.5b4a33e1.woff2"
   },
   {
-    "revision": "e8eaae902c3a4dacb9a5062667e10576",
-    "url": "/fonts/Roboto-LightItalic.e8eaae90.woff2"
-  },
-  {
     "revision": "4357beb823a5f8d65c260f045d9e019a",
     "url": "/fonts/Roboto-RegularItalic.4357beb8.woff2"
+  },
+  {
+    "revision": "e8eaae902c3a4dacb9a5062667e10576",
+    "url": "/fonts/Roboto-LightItalic.e8eaae90.woff2"
   },
   {
     "revision": "13ec0eb5bdb821ff4930237d7c9f943f",
@@ -92,12 +92,12 @@ self.__precacheManifest = [
     "url": "/fonts/Roboto-BoldItalic.94008e69.woff2"
   },
   {
-    "revision": "2ef8ba3410dcc71578a880e7064acd7a",
-    "url": "/fonts/fa-brands-400.2ef8ba34.woff"
-  },
-  {
     "revision": "f75569f8a5fab0893fa712d8c0d9c3fe",
     "url": "/fonts/Roboto-BlackItalic.f75569f8.woff2"
+  },
+  {
+    "revision": "2ef8ba3410dcc71578a880e7064acd7a",
+    "url": "/fonts/fa-brands-400.2ef8ba34.woff"
   },
   {
     "revision": "a7140145ebaaf5fb14e40430af5d25c4",
@@ -112,6 +112,10 @@ self.__precacheManifest = [
     "url": "/js/chunk-c8ab245c.64799325.js"
   },
   {
+    "revision": "35b07eb2f8711ae08d1f58c043880930",
+    "url": "/fonts/Roboto-Regular.35b07eb2.woff"
+  },
+  {
     "revision": "1d6594826615607f6dc860bb49258acb",
     "url": "/fonts/Roboto-Medium.1d659482.woff"
   },
@@ -124,16 +128,12 @@ self.__precacheManifest = [
     "url": "/fonts/Roboto-Black.313a6563.woff"
   },
   {
-    "revision": "35b07eb2f8711ae08d1f58c043880930",
-    "url": "/fonts/Roboto-Regular.35b07eb2.woff"
+    "revision": "13efe6cbc10b97144a28310ebdeda594",
+    "url": "/fonts/Roboto-LightItalic.13efe6cb.woff"
   },
   {
     "revision": "8a96edbbcd9a6991d79371aed0b0288e",
     "url": "/fonts/Roboto-ThinItalic.8a96edbb.woff"
-  },
-  {
-    "revision": "13efe6cbc10b97144a28310ebdeda594",
-    "url": "/fonts/Roboto-LightItalic.13efe6cb.woff"
   },
   {
     "revision": "f5902d5ef961717ed263902fc429e6ae",
@@ -152,40 +152,40 @@ self.__precacheManifest = [
     "url": "/fonts/Roboto-BlackItalic.cc2fadc3.woff"
   },
   {
-    "revision": "a7b95dbdd87e0c809570affaf366a434",
-    "url": "/fonts/fa-brands-400.a7b95dbd.eot"
-  },
-  {
     "revision": "98b6db59be947f563350d2284fc9ea36",
     "url": "/fonts/fa-brands-400.98b6db59.ttf"
+  },
+  {
+    "revision": "a7b95dbdd87e0c809570affaf366a434",
+    "url": "/fonts/fa-brands-400.a7b95dbd.eot"
   },
   {
     "revision": "5eb754ab7dbd2fee562360528db4c3c0",
     "url": "/img/fa-regular-400.5eb754ab.svg"
   },
   {
-    "revision": "46e7cec623d8bd790d9fdbc8de2d3ee7",
-    "url": "/fonts/fa-solid-900.46e7cec6.eot"
+    "revision": "af3f6dbe172a9c1aba77366a2ff630d1",
+    "url": "/fonts/materialdesignicons-webfont.af3f6dbe.woff2"
   },
   {
     "revision": "ff8d9f8adb0d09f11d4816a152672f53",
     "url": "/fonts/fa-solid-900.ff8d9f8a.ttf"
   },
   {
-    "revision": "af3f6dbe172a9c1aba77366a2ff630d1",
-    "url": "/fonts/materialdesignicons-webfont.af3f6dbe.woff2"
+    "revision": "46e7cec623d8bd790d9fdbc8de2d3ee7",
+    "url": "/fonts/fa-solid-900.46e7cec6.eot"
   },
   {
     "revision": "26333b3884782fdb5f8c0a971f1d2570",
     "url": "/fonts/materialdesignicons-webfont.26333b38.woff"
   },
   {
-    "revision": "1993c4a16cce5446a5cfafacf4da740b",
-    "url": "/fonts/materialdesignicons-webfont.1993c4a1.eot"
-  },
-  {
     "revision": "baded94134f273450a473a4962111324",
     "url": "/fonts/materialdesignicons-webfont.baded941.ttf"
+  },
+  {
+    "revision": "1993c4a16cce5446a5cfafacf4da740b",
+    "url": "/fonts/materialdesignicons-webfont.1993c4a1.eot"
   },
   {
     "revision": "5bf145531213545e03ff41cd27df7d2b",
