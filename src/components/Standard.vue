@@ -2,12 +2,13 @@
 .standard
     .container
         h1 C言語 練習問題集 <きほんのきほん>
-        v-btn(color='#1976D2' dark style='padding: 0 20px') 解説ページへ
-            router-link(to='StandardExp')
-        br
+        //-
+            v-btn(color='#1976D2' dark style='padding: 0 20px') 解説ページへ
+                router-link(to='StandardExp')
+            br
         //- h4(style='text-align: right') 編集: ほとここあ
         //- br
-        v-chip(dark color='#BA68C8' text-color='black').title 1. 標準出力
+        v-chip(dark color='#BA68C8' text-color='black').title 標準入出力 (stdio)
 
     //- 1
     .contents

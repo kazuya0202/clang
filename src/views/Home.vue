@@ -7,11 +7,10 @@ v-layout#Home.grey.lighten-4(fill-height column)
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 import Standard from '@/components/Standard.vue';
-import StandardExplanation from '@/components/StandardExplanation.vue'
 
 @Component({
     components: {
-        Standard, StandardExplanation,
+        Standard,
     },
 })
 export default class Home extends Vue {}
