@@ -2,6 +2,10 @@
 v-layout#Home.grey.lighten-4(fill-height column)
     .main-pane.white.elevation-3
         standard
+
+        br
+        v-divider
+
         std-exp
 </template>
 

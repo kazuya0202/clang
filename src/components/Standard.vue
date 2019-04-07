@@ -124,13 +124,9 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class Standard extends Vue {
     protected desc: string = 'と表示するプログラムを作成せよ';
     protected includeStr: string = '#include <stdio.h>';
-    protected iterator: number = 0;
+    protected count: number = 0;
 
-
-    protected counter = () => {
-        this.iterator++;
-        return this.iterator;
-    }
+    protected counter = () => ++this.count;
 }
 </script>
 
@@ -176,10 +172,10 @@ export default class Standard extends Vue {
     font-style: oblique
     color: #FF1744
 
-.question:after
+.question::after
     margin-left: 1.5rem
     border-top: solid 1px #FF1744
-    content: ""
+    content: ''
     flex-grow: 1
 
 </style>
