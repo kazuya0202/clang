@@ -2,15 +2,18 @@
 v-layout#Home.grey.lighten-4(fill-height column)
     .main-pane.white.elevation-3
         standard
+        std-exp
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 import Standard from '@/components/Standard.vue';
+import StdExp from '@/components/StdExp.vue';
+import HelloWorld from '@/components/HelloWorld.vue';
 
 @Component({
     components: {
-        Standard,
+        Standard, StdExp, HelloWorld,
     },
 })
 export default class Home extends Vue {}

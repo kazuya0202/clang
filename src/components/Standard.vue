@@ -158,7 +158,7 @@ export default class Standard extends Vue {
     border-right: solid 7px orange
 
 .prompt
-    margin: auto
+    margin: 0 .5rem
     border-radius: 10px
     background: black
     color: white
@@ -171,9 +171,15 @@ export default class Standard extends Vue {
     font-size: 1.1rem
 
 .question
+    display: flex
+    align-items: center
     font-style: oblique
     color: #FF1744
-    // text-decoration: underline
-    text-shadow: white
+
+.question:after
+    margin-left: 1.5rem
+    border-top: solid 1px #FF1744
+    content: ""
+    flex-grow: 1
 
 </style>
