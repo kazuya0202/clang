@@ -18,7 +18,7 @@
 
     p.title { }
     ul
-        li ブロックと呼ばれる
+        li <code>{ }</code>で囲まれた部分はブロックと呼ばれる
         li <code>if</code>や<code>for</code>などの処理が複数行にわたるときに用いられる
 
     p.title ;
@@ -26,16 +26,26 @@
         li セミコロンと呼ばれる
         li 基本的に処理の終わりにつける（<code>if</code>や<code>for</code>の後にはつけてはいけない）
 
-    p.title 変数
-    ul
-        li 一時的にメモリ上に領域が確保され、数値や文字などを記憶しておくことができる
-        li 変数名の先頭に数字を使うことはできない
-
     p.title return 0;
     ul
         li 一般的に関数の終わりにある処理で、この関数が呼ばれたときに返すという意味
         li <code>main</code>関数の型が<code>int</code>であるため、整数型の<code>0</code>が返される
         li <code>main</code>関数の型が<code>void</code>である場合は省略可能
+
+    p.title 変数
+    ul
+        li 一時的にメモリ上に領域が確保され、数値や文字などを記憶しておくことができる
+        li 変数名の先頭に数字を使うことはできない
+
+    p.title コメント
+    ul
+        li プログラム内に処理の説明やメモなどを書くことができる
+        li コンパイル時に削除される
+        br
+        li 1行コメント：<code>//</code>の後がすべてコメントとみなされる（ただし、1行のみ）
+        code.code // 変数の宣言<br>int hoge;
+        li 複数行コメント：<code>/*</code>と<code>*/</code>で囲まれた部分がコメントとみなされ、複数行書くことができる
+        code.code /*<br>　変数の宣言<br>　max: 最大値を記憶する変数<br>*/<br>int max;
 
     p.title 型 | <code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>bool</code>
     ul
@@ -44,24 +54,52 @@
         li <code>double</code>：浮動小数点型（倍精度）
         li <code>char</code>：文字型
         li <code>bool</code>：論理型
+        br
+        li 浮動小数点型はコンピュータの特性上誤差が生じることがある
+
+    p.title 変数の宣言 / 初期化
+    ul
+        li <span class='keyword'>宣言</span>：変数は、<code>&lt;型&gt;␣&lt;変数名&gt;;</code>で宣言する
+        code.code int hoge;
+        | <br><br>
+
+        li <code>=</code>：代入演算子
+            | <br>数学の<code>=</code>（等しい）とは異なり、右辺のデータを左辺に代入するという意味
+        li <span class='keyword'>初期化</span>：変数宣言時に初期値を設定すること（代入演算子を用いる）
+        code.code int fuga = 100;
+        | <br><br>
+
+        li <code>&lt;型&gt;</code>の前に<code>const</code>をつけることで<span class='keyword'>定数</span>（変更不可能な変数）を宣言できる
+            | <br> また、定数を宣言するときは初期値を必ず設定する
+        code.code const float PI = 3.141592653;
+
+    p.title キャスト
+    ul
+        li <span class='keyword'>キャスト</span>：明示的に変数の型を変換すること（明示的型変換とも呼ばれる）
+        li 代入や式中では暗黙的に変換することも可能
+        .frame 暗黙型変換の優先順序 → <code>double</code> &gt; <code>float</code> &gt; <code>int</code> &gt; <code>char</code>
+        li 明示的型変換は
+            code.code
+                | // (型名)式
+                | double pi = 3.14;
+                | int num = (int)pi;
+            | のように使われる
 
     p.title 演算子 | <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>=</code>
     ul
         li <code>+</code>：加算演算子
         li <code>-</code>：減算演算子
-        li <code>*</code>：乗算演算子
-        li <code>/</code>：除算演算子
-        li <code>%</code>：剰余演算子
-        li <code>=</code>：代入演算子
+        li <code>*</code>：乗算演算子（数学記号の<code>×</code>）
+        li <code>/</code>：除算演算子（数学記号の<code>÷</code>）
+        li <code>%</code>：剰余演算子（余りを求める）
 
-    p.title 演算子 その2 | <code>++</code>, <code>--</code>
+    p.title 単項演算子 | <code>++</code>, <code>--</code>
     ul
-        | インクリメント：1増やすこと　　
-        | デクリメント：1減らすこと <br><br>
-        li <code>x++</code>：処理してからインクリメント
-        li <code>++x</code>：インクリメントしてから処理
-        li <code>x--</code>：処理してからデクリメント
-        li <code>--x</code>：デクリメントしてから処理
+        <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと） <br><br>
+        li <code>x++</code>：演算してからxに1加算　（後置型）
+        li <code>++x</code>：xに1加算してから演算　（前置型）
+        li <code>x--</code>：演算してからxを1減算　（後置型）
+        li <code>--x</code>：xを1減算してから演算　（前置型）
 
     p.title 論理演算子
     ul
@@ -75,7 +113,7 @@
         li 標準出力関数（読み方は「プリントエフ」）
         li 主な形は<code>printf("XXX\n");</code>
         | この場合はコンソール（黒い）画面に<span class='prompt'>XXX</span>と出力される
-        li <code>\n</code>については次の項目に記載
+        li <code>\n</code>については次項に記載
 
     p.title エスケープシーケンス（特殊文字）
     ul
@@ -91,7 +129,7 @@
         li 標準入力関数（読み方は「スキャンエフ」）
         li 主な形は<code>scanf("%d", &x);</code>
         | この場合はコンソールが入力待ち状態になり、入力することができる
-        li <code>%d</code>については次の項目で記載
+        li <code>%d</code>については次項に記載
 
 
     p.title 変換指定子 | <code>%d</code>, <code>%f</code>, <code>%lf</code>, <code>%c</code>, <code>%s</code>, <code>%o</code>, <code>%x</code>
@@ -147,6 +185,22 @@ ul::after
 
 code
     margin: 0 .15rem
+
+.code
+    width: 100%
+    background: #263238
+    color: white
+    padding: 5px 20px
+    font-size: 1.1rem
+
+.keyword
+    padding: 0 .5rem
+    background: linear-gradient(transparent 0%, #82B1FF 0%)
+    border-radius: 20px
+
+.frame
+    border: solid 2px #FFCDD2
+    padding: .3rem
 
 li
     margin: .2rem 0
