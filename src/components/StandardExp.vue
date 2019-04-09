@@ -51,7 +51,7 @@
         li 複数行コメント：<code>/*</code>と<code>*/</code>で囲まれた部分がコメントとみなされ、複数行書くことができる
         code.code /*<br>　変数の宣言<br>　max: 最大値を記憶する変数<br>*/<br>int max;
 
-    p.title 型 | <span class='keyword'><code>int</code> / <code>float</code> / <code>double</code> / <code>char</code> / <code>bool</code></span>
+    p.title 型 | <span class='type-bg'><code>int</code> / <code>float</code> / <code>double</code> / <code>char</code> / <code>bool</code></span>
     ul
         li.frame <code>int</code>：整数型 <br>
             | <code>float</code>：浮動小数点型（単精度） <br>
@@ -71,8 +71,6 @@
             | <code>char</code>：<code>return <span class='type-bg'>文字</span>;</code> <br>
             | <code>char[]</code>：<code>return <span class='type-bg'>文字列</span>;</code> <br>
             | <code>bool</code>：<code>return <span class='type-bg'>真偽値</span>;</code> <br>
-
-
 
     p.title 変数の宣言 / 初期化
     ul
@@ -101,25 +99,30 @@
                 | double pi = 3.14;
                 | int num = (int)pi;
 
-    p.title 演算子 | <span class='keyword'><code>+</code> / <code>-</code> / <code>*</code> / <code>/</code> / <code>%</code></span>
+    p.title 演算子 | <span class='type-bg'><code>+</code> / <code>-</code> / <code>*</code> / <code>/</code> / <code>%</code></span>
     ul
-        li <code>+</code>：加算演算子
-        li <code>-</code>：減算演算子
-        li <code>*</code>：乗算演算子（数学記号の<code>×</code>）
-        li <code>/</code>：除算演算子（数学記号の<code>÷</code>）
-        li <code>%</code>：剰余演算子（余りを求める）
+        li.frame <code>+</code>：加算演算子 <br>
+            | <code>-</code>：減算演算子 <br>
+            | <code>*</code>：乗算演算子（数学記号の<code>×</code>） <br>
+            | <code>/</code>：除算演算子（数学記号の<code>÷</code>） <br>
+            | <code>%</code>：剰余演算子（余りを求める） <br>
+        code.code
+            | printf("%d\n", 10 % 5);
+            | printf("%d\n", 2 + 3 * 5);
+        .exec-result 0<br>17
+        br
+        li プログラムでも数学と同じように<code>( )</code>で数式を囲むと演算順序が優先される
+        code.code
+            | printf("%d\n", (2 + 3) * 5);
+        .exec-result 25
 
-    p.title 複合代入演算子 | <span class='keyword'><code>+=</code> / <code>-=</code> / <code>*=</code> / <code>/=</code> / <code>%=</code></span>
+    p.title 複合代入演算子 | <span class='type-bg'><code>+=</code> / <code>-=</code> / <code>*=</code> / <code>/=</code> / <code>%=</code></span>
     ul
         li 四則演算(+ %)と代入を同時に行う場合の省略記法
             | <br>（ただし、左辺と右辺に同じ変数がある場合のみ）
         li 書き方は以下の通り
-        code.code
-            | a += b;
-            | a -= b;
-            | a *= b;
-            | a /= b;
-            | a %= b;
+        .frame <code>a += b</code> / <code>a -= b</code> / <code>a *= b</code> / <code>a /= b</code> / <code>a %= b</code>
+        br
         code.code
             | // 従来の四則演算と代入
             | sum = sum + x;
@@ -130,11 +133,11 @@
     p.title 単項演算子 | <code>++</code>, <code>--</code>
     ul
         <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと）
-        | <br><code>x++</code> = <code>x = x + 1</code> / <code>x--</code> = <code>x = x - 1</code><br><br>
-        li <code>x++</code>：演算してからxに1加算　（後置型）
-        li <code>++x</code>：xに1加算してから演算　（前置型）
-        li <code>x--</code>：演算してからxを1減算　（後置型）
-        li <code>--x</code>：xを1減算してから演算　（前置型）
+        li.frame <code>x++</code> = <code>x = x + 1</code> / <code>x--</code> = <code>x = x - 1</code>
+        li.frame <code>x++</code>：演算してからxに1加算　（後置型） <br>
+            | <code>++x</code>：xに1加算してから演算　（前置型） <br>
+            | <code>x--</code>：演算してからxを1減算　（後置型） <br>
+            | <code>--x</code>：xを1減算してから演算　（前置型） <br>
 
     p.title printf()
     ul
@@ -145,11 +148,11 @@
 
     p.title エスケープシーケンス（特殊文字）
     ul
-        |￥と \ は環境によって表示が異なるが同意（Macでは必ず \ ） <br><br>
-        li <code>\n</code>：改行
-        li <code>\0</code>：NULL（数字の「0」と同意）（読み方はナル文字 or ヌル文字）
-        li <code>\'</code>：シングルクォーテーション「'」を表示
-        li <code>\"</code>：ダブルクォーテーション「"」を表示
+        |￥と \ は環境によって表示が異なるが同意（Macでは必ず \ ）
+        li.frame <code>\n</code>：改行 <br>
+            | <code>\0</code>：NULL（数字の「0」と同意）（読み方はナル文字 or ヌル文字） <br>
+            | <code>\'</code>：シングルクォーテーション「'」を表示 <br>
+            | <code>\"</code>：ダブルクォーテーション「"」を表示 <br>
 
     p.title scanf()
     ul
@@ -159,26 +162,46 @@
         li <code>%d</code>については次項に記載
 
 
-    p.title 変換指定子 | <code>%d</code>, <code>%f</code>, <code>%lf</code>, <code>%c</code>, <code>%s</code>, <code>%o</code>, <code>%x</code>
+    p.title 変換指定子 | <span class='type-bg'><code>%d</code> / <code>%f</code> / <code>%lf</code> / <code>%c</code> / <code>%s</code> / <code>%o</code> / <code>%x</code></span>
     ul
         li <code>printf</code>や<code>scanf</code>に用いる
-        | <br> よく使われるもの
-        li <code>%d</code> = <code>int</code>
-        li <code>%f</code> = <code>float</code>
-        li <code>%lf</code> = <code>double</code>
-        li <code>%c</code> = <code>char</code>
-        li <code>%s</code> = <code>char[]</code>：文字列（文字配列）
-        br
+        li.frame <code>%d</code> = <code>int</code> <br>
+            | <code>%f</code> = <code>float</code> <br>
+            | <code>%lf</code> = <code>double</code> <br>
+            | <code>%c</code> = <code>char</code> <br>
+            | <code>%s</code> = <code>char[]</code>：文字列（文字配列） <br>
         li それぞれ様々なオプションがある（詳しくは「変換指定子 オプション」で検索）
 
+    p.title 条件分岐
+    ul
+        li <code>if</code>（もしも～なら）を用いる
+        li 主な書き方は以下の通り
+        code.code
+            | if ( 条件式 ) {   // 条件式が<code>true</code>(真)なら処理1を実行する
+            |     処理1;
+            | } else {          // 条件式が<code>false</code>(偽)なら処理2を実行する
+            |     処理2;
+            | }
+        li [処理1], [処理2]それぞれの処理が1文なら<code>{ }</code>を省略可能
+        li また、<code>else</code>も使わない場合は省略する
+
+    p.title 条件式
+    ul
+        li 条件式には、<span class='keyword'>比較演算子</span>と<span class='keyword'>論理演算子</span>が使われる
+        li 条件式の結果は<code>true</code>(真)、または<code>false</code>(偽)が返される
+
+    p.title 比較演算子
+    ul
+        li
 
     p.title 論理演算子
     ul
         | A = 0 (false), B = 1 (true) とする
-        li <code>AND (&&)</code>：論理和 （A && B → 0）
-        li <code>OR (||)</code>：論理積 （A || B → 1）
-        li <code>NOT (!)</code>：論理否定 （!A → 1）
+        li.frame <code>AND (&&)</code>：論理和 （A && B → 0） <br>
+            | <code>OR (||)</code>：論理積 （A || B → 1） <br>
+            | <code>NOT (!)</code>：論理否定 （!A → 1） <br>
 
+    // p.title
 
 
 
@@ -203,9 +226,11 @@ export default class StandardExp extends Vue {}
     padding .5rem
     margin: .2rem 0
     font-weight: bold
+
     code
-        margin: auto
         font-size: 1rem
+    li
+        margin: .2rem 0
 
 /** ul要素後に改行を入れる */
 ul::after
@@ -235,14 +260,26 @@ code
     border-radius: 20px
 
 .frame
-    border: solid 2px #FFCDD2
-    padding: .3rem
-
-li
     margin: .2rem 0
+    padding: .3rem
+    border: solid 2px #FFCDD2
+    width: fit-content
 
 .type-bg
     background: #CE93D8
-    padding: .1rem
+    padding: .1rem .5rem
 
+.exec-result
+    width: 100%
+    background: #B39DDB
+    margin: .5rem 0
+    padding: 0 1rem
+    border-radius: 10px
+
+.exec-result::before
+    content: '実行結果\A'
+    white-space: pre
+    background: #FFCDD2
+    padding: .15rem .5rem
+    margin: 1rem
 </style>
