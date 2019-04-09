@@ -1,5 +1,5 @@
 <template lang='pug'>
-.std-exp
+.standard-exp
     h1(style='text-align: center; border-bottom: solid 3px #0277BD; width: 250px; margin: auto') 解説ページ
     br
 
@@ -26,11 +26,15 @@
         li セミコロンと呼ばれる
         li 基本的に処理の終わりにつける（<code>if</code>や<code>for</code>の後にはつけてはいけない）
 
-    p.title return 0;
+    p.title return
     ul
         li 一般的に関数の終わりにある処理で、この関数が呼ばれたときに返すという意味
+            | <br> <span class='keyword'>返り値</span>と呼ばれている
         li <code>main</code>関数の型が<code>int</code>であるため、整数型の<code>0</code>が返される
-        li <code>main</code>関数の型が<code>void</code>である場合は省略可能
+        li main関数では<code>return 0;</code>と書くのが一般的だが、その他の関数を使うときは
+            | <code>false</code>や<code>abcde</code>などの<code>bool</code>型、<code>char[]</code>型
+            | を返すことも可能であるということは頭に入れておくべき
+            | （<code>return 0;</code>だけが<code>return</code>と固定観念を持ってはダメ）
 
     p.title 変数
     ul
@@ -47,15 +51,28 @@
         li 複数行コメント：<code>/*</code>と<code>*/</code>で囲まれた部分がコメントとみなされ、複数行書くことができる
         code.code /*<br>　変数の宣言<br>　max: 最大値を記憶する変数<br>*/<br>int max;
 
-    p.title 型 | <code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>bool</code>
+    p.title 型 | <span class='keyword'><code>int</code> / <code>float</code> / <code>double</code> / <code>char</code> / <code>bool</code></span>
     ul
-        li <code>int</code>：整数型
-        li <code>float</code>：浮動小数点型（単精度）
-        li <code>double</code>：浮動小数点型（倍精度）
-        li <code>char</code>：文字型
-        li <code>bool</code>：論理型
+        li.frame <code>int</code>：整数型 <br>
+            | <code>float</code>：浮動小数点型（単精度） <br>
+            | <code>double</code>：浮動小数点型（倍精度） <br>
+            | <code>char</code>：文字型 <br>
+            | <code>bool</code>：論理型（<code>true</code> / <code>false</code>)
         br
         li 浮動小数点型はコンピュータの特性上誤差が生じることがある
+
+    p.title 型とreturn値
+    ul
+        li 関数の返り値である<code>return</code>は、<code>型</code>によって変わる
+        li.frame <code>void</code>：<code>return;</code> <br>
+            | <code>int</code>：<code>return <span class='type-bg'>整数</span>;</code> <br>
+            | <code>float</code>：<code>return <span class='type-bg'>実数</span>;</code> <br>
+            | <code>double</code>：<code>return <span class='type-bg'>実数</span>;</code> <br>
+            | <code>char</code>：<code>return <span class='type-bg'>文字</span>;</code> <br>
+            | <code>char[]</code>：<code>return <span class='type-bg'>文字列</span>;</code> <br>
+            | <code>bool</code>：<code>return <span class='type-bg'>真偽値</span>;</code> <br>
+
+
 
     p.title 変数の宣言 / 初期化
     ul
@@ -78,14 +95,13 @@
         li <span class='keyword'>キャスト</span>：明示的に変数の型を変換すること（明示的型変換とも呼ばれる）
         li 代入や式中では暗黙的に変換することも可能
         .frame 暗黙型変換の優先順序 → <code>double</code> &gt; <code>float</code> &gt; <code>int</code> &gt; <code>char</code>
-        li 明示的型変換は
+        li 明示的型変換は以下のように使われる
             code.code
                 | // (型名)式
                 | double pi = 3.14;
                 | int num = (int)pi;
-            | のように使われる
 
-    p.title 演算子 | <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>=</code>
+    p.title 演算子 | <span class='keyword'><code>+</code> / <code>-</code> / <code>*</code> / <code>/</code> / <code>%</code></span>
     ul
         li <code>+</code>：加算演算子
         li <code>-</code>：減算演算子
@@ -93,20 +109,32 @@
         li <code>/</code>：除算演算子（数学記号の<code>÷</code>）
         li <code>%</code>：剰余演算子（余りを求める）
 
+    p.title 複合代入演算子 | <span class='keyword'><code>+=</code> / <code>-=</code> / <code>*=</code> / <code>/=</code> / <code>%=</code></span>
+    ul
+        li 四則演算(+ %)と代入を同時に行う場合の省略記法
+            | <br>（ただし、左辺と右辺に同じ変数がある場合のみ）
+        li 書き方は以下の通り
+        code.code
+            | a += b;
+            | a -= b;
+            | a *= b;
+            | a /= b;
+            | a %= b;
+        code.code
+            | // 従来の四則演算と代入
+            | sum = sum + x;
+            |
+            | // 複合代入
+            | sum += x;
+
     p.title 単項演算子 | <code>++</code>, <code>--</code>
     ul
-        <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと） <br><br>
+        <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと）
+        | <br><code>x++</code> = <code>x = x + 1</code> / <code>x--</code> = <code>x = x - 1</code><br><br>
         li <code>x++</code>：演算してからxに1加算　（後置型）
         li <code>++x</code>：xに1加算してから演算　（前置型）
         li <code>x--</code>：演算してからxを1減算　（後置型）
         li <code>--x</code>：xを1減算してから演算　（前置型）
-
-    p.title 論理演算子
-    ul
-        | A = 0, B = 1 とする
-        li <code>AND (&&)</code>：論理和 （A && B → 0）
-        li <code>OR (||)</code>：論理積 （A || B → 1）
-        li <code>NOT (!)</code>：論理否定 （!A → 1）
 
     p.title printf()
     ul
@@ -122,7 +150,6 @@
         li <code>\0</code>：NULL（数字の「0」と同意）（読み方はナル文字 or ヌル文字）
         li <code>\'</code>：シングルクォーテーション「'」を表示
         li <code>\"</code>：ダブルクォーテーション「"」を表示
-
 
     p.title scanf()
     ul
@@ -145,6 +172,14 @@
         li それぞれ様々なオプションがある（詳しくは「変換指定子 オプション」で検索）
 
 
+    p.title 論理演算子
+    ul
+        | A = 0 (false), B = 1 (true) とする
+        li <code>AND (&&)</code>：論理和 （A && B → 0）
+        li <code>OR (||)</code>：論理積 （A || B → 1）
+        li <code>NOT (!)</code>：論理否定 （!A → 1）
+
+
 
 
 </template>
@@ -153,13 +188,14 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class StdExp extends Vue {}
+export default class StandardExp extends Vue {}
 </script>
 
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 
-// .std-exp
+.standard-exp
+    padding: .1rem
 
 .title
     border-left: solid 5px orange
@@ -204,5 +240,9 @@ code
 
 li
     margin: .2rem 0
+
+.type-bg
+    background: #CE93D8
+    padding: .1rem
 
 </style>

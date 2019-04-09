@@ -10,5 +10,10 @@ export default new Router({
             name: 'Home',
             component: () => import('@/views/Home.vue'),
         },
+        {
+            path: '/standard-exp',
+            name: 'standard-exp',
+            component: () => import('@/components/StandardExp.vue'),
+        },
     ],
 });

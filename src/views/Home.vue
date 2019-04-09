@@ -1,23 +1,24 @@
 <template lang='pug'>
 v-layout#Home.grey.lighten-4(fill-height column)
     .main-pane.white.elevation-3
+        v-btn(:to='{ name: "standard-exp"}' color='purple') press to [ standard-exp ]
+
         standard
 
         br
         v-divider
 
-        std-exp
+        standard-exp
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 import Standard from '@/components/Standard.vue';
-import StdExp from '@/components/StdExp.vue';
-import HelloWorld from '@/components/HelloWorld.vue';
+import StandardExp from '@/components/StandardExp.vue';
 
 @Component({
     components: {
-        Standard, StdExp, HelloWorld,
+        Standard, StandardExp,
     },
 })
 export default class Home extends Vue {}
