@@ -32,7 +32,7 @@
             | <br> <span class='keyword'>返り値</span>と呼ばれている
         li <code>main</code>関数の型が<code>int</code>であるため、整数型の<code>0</code>が返される
         li main関数では<code>return 0;</code>と書くのが一般的だが、その他の関数を使うときは
-            | <code>false</code>や<code>abcde</code>などの<code>bool</code>型、<code>char[]</code>型
+            | <code>return false;</code>や<code>return abcde;</code>などの<code>bool</code>型、<code>char[]</code>型
             | を返すことも可能であるということは頭に入れておくべき
             | （<code>return 0;</code>だけが<code>return</code>と固定観念を持ってはダメ）
 
@@ -51,7 +51,7 @@
         li 複数行コメント：<code>/*</code>と<code>*/</code>で囲まれた部分がコメントとみなされ、複数行書くことができる
         code.code /*<br>　変数の宣言<br>　max: 最大値を記憶する変数<br>*/<br>int max;
 
-    p.title 型 | <span class='type-bg'><code>int</code> / <code>float</code> / <code>double</code> / <code>char</code> / <code>bool</code></span>
+    p.title 型
     ul
         li.frame <code>int</code>：整数型 <br>
             | <code>float</code>：浮動小数点型（単精度） <br>
@@ -99,7 +99,7 @@
                 | double pi = 3.14;
                 | int num = (int)pi;
 
-    p.title 演算子 | <span class='type-bg'><code>+</code> / <code>-</code> / <code>*</code> / <code>/</code> / <code>%</code></span>
+    p.title 演算子
     ul
         li.frame <code>+</code>：加算演算子 <br>
             | <code>-</code>：減算演算子 <br>
@@ -116,7 +116,7 @@
             | printf("%d\n", (2 + 3) * 5);
         .exec-result 25
 
-    p.title 複合代入演算子 | <span class='type-bg'><code>+=</code> / <code>-=</code> / <code>*=</code> / <code>/=</code> / <code>%=</code></span>
+    p.title 複合代入演算子
     ul
         li 四則演算(+ %)と代入を同時に行う場合の省略記法
             | <br>（ただし、左辺と右辺に同じ変数がある場合のみ）
@@ -130,7 +130,7 @@
             | // 複合代入
             | sum += x;
 
-    p.title 単項演算子 | <code>++</code>, <code>--</code>
+    p.title 単項演算子
     ul
         <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと）
         li.frame <code>x++</code> = <code>x = x + 1</code> / <code>x--</code> = <code>x = x - 1</code>
@@ -162,15 +162,18 @@
         li <code>%d</code>については次項に記載
 
 
-    p.title 変換指定子 | <span class='type-bg'><code>%d</code> / <code>%f</code> / <code>%lf</code> / <code>%c</code> / <code>%s</code> / <code>%o</code> / <code>%x</code></span>
+    p.title 変換指定子
     ul
         li <code>printf</code>や<code>scanf</code>に用いる
-        li.frame <code>%d</code> = <code>int</code> <br>
+        li.frame <code>%d</code> = <code>int</code> - 10進数表示 <br>
             | <code>%f</code> = <code>float</code> <br>
             | <code>%lf</code> = <code>double</code> <br>
             | <code>%c</code> = <code>char</code> <br>
-            | <code>%s</code> = <code>char[]</code>：文字列（文字配列） <br>
-        li それぞれ様々なオプションがある（詳しくは「変換指定子 オプション」で検索）
+            | <code>%s</code> = <code>char[]</code> - 文字列（文字配列） <br>
+            | <br>
+            | <code>%o</code> = <code>int</code> - 8進数表示 <br>
+            | <code>%x</code> = <code>int</code> - 16進数表示 <br>
+        li それぞれ様々なオプションがある（今は書く気ないです。詳しくは「変換指定子 オプション」で検索）
 
     p.title 条件分岐
     ul
@@ -178,9 +181,9 @@
         li 主な書き方は以下の通り
         code.code
             | if ( 条件式 ) {   // 条件式が<code>true</code>(真)なら処理1を実行する
-            |     処理1;
+            |     // 処理1;
             | } else {          // 条件式が<code>false</code>(偽)なら処理2を実行する
-            |     処理2;
+            |     // 処理2;
             | }
         li [処理1], [処理2]それぞれの処理が1文なら<code>{ }</code>を省略可能
         li また、<code>else</code>も使わない場合は省略する
@@ -192,7 +195,12 @@
 
     p.title 比較演算子
     ul
-        li
+        | 基本的に数学の記号と意味は同じ
+        li.frame <code>&gt;</code>：より大きい  / <code>&gt;=</code>：以上 <br>
+            | <code>&lt;</code>：より小さい / <code>&lt;=</code>：以下 <br>
+            | <code>==</code>：等しい <br>
+            | <code>!=</code>：等しくない <br>
+        li プログラムの等価演算子は、数学の<code>=</code>とは異なるため注意する
 
     p.title 論理演算子
     ul
@@ -201,9 +209,96 @@
             | <code>OR (||)</code>：論理積 （A || B → 1） <br>
             | <code>NOT (!)</code>：論理否定 （!A → 1） <br>
 
-    // p.title
+    p.title 比較演算子と論理演算子の組み合わせ
+    ul
+        li 論理演算子を用いることで複雑な条件式を作ることができる
+        code.code
+            | // n が0より小さい、または10以上なら
+            | if (n < 0 || n >= 10) ...
+            |
+            | // c がアルファベットの小文字なら
+            | if (c >= 'a' && c <= 'z') ...
+        li アルファベットがループで出力できるのは、ASCIIコードと呼ばれるもので連続的に管理されているから
+            | ASCIIコードについては topics として追記予定
 
+    p.title 繰り返し処理
+    ul
+        li 繰り返し構文には<code>while</code>、<code>for</code>の2つがある
+        li 主な使い分けは以下の通り
+        li.frame <code>for</code>：繰り返す回数が[n回]などとはっきりと分かっている場合 <br>
+            | <code>while</code>：繰り返す回数がはっきりとわからない場合
 
+        li 繰り返し条件の式が<code>true</code>の間<code>{ }</code>内の処理を行う <br>
+            | また、<code>{ }</code>内の処理が1文の場合、<code>{ }</code>省略可能
+        br
+        details(style='background: #C5E1A5; padding: .1rem .2rem')
+            summary 繰り返しの考えかた
+            v-divider
+            details(style='background: #81D4FA; padding: .2rem .5rem')
+                summary sample code
+                p.type-bg(style='text-align: center') <code>while</code>と<code>for</code>で同じことをするコード
+                code.code(style='width: fit-content')
+                    | // while
+                    | int i;    // 宣言
+                    | i = 0;    // 初期化
+                    | while (i < 10) {  // 条件式
+                    |     printf("%d回目\n", i + 1);    // 処理
+                    |     i++;  // 増減式
+                    | }
+                    |
+                    | // for
+                    | int i;    // 宣言
+                    | for (i = 0; i < 10; i++) {    // 初期化、条件式、増減式
+                    |     printf("%d回目\n", i + 1);    // 処理
+                    | }
+                | <br><br>
+                p.type-bg(style='text-align: center') それぞれ以下のような結果が得られる
+                .exec-result(style='width: 50%; margin: auto')
+                    | 1回目<br>2回目<br>3回目<br>4回目<br>5回目<br>6回目<br>7回目<br>8回目<br>9回目<br>10回目
+
+                | <br>
+            v-divider
+            ol(style='background: #FFCCBC;')
+                li 変数<code>i</code>を宣言
+                v-divider
+                li <code>i</code>に<code>0</code>に初期化する <br>
+                | （1から始めても問題ないがプログラムでは0から始めると後々応用しやすい）
+                v-divider
+                li 繰り返し条件と比較する <br>
+                | （このとき<code>i</code>が<code>0～9</code>と順にカウントしていくとちょうど10回になると考えるとよい） <br>
+                | <code>i</code>は<code>0～9</code>の値をとる => <code>i < 10</code>または<code>i <= 9</code>
+                v-divider
+                li 繰り返す処理 <br>
+                | ここでは、回数を表示する <br>
+                code.code(style='width: fit-content')
+                    | printf("%d回目\n", i + 1);
+                v-divider
+                li 変数の値を更新する
+                | 今回はカウントアップしていくため<code>i</code>をインクリメント <br>
+                code.code(style='width: fit-content')
+                    | i++;
+                v-divider
+                li 2.に戻って繰り返す
+                v-divider
+                li 条件式が成り立たなくなったら
+                | <code>i</code>が<code>10</code>になったとき、<code>i < 10</code>の条件式は<code>false</code>になるためループを終える
+
+    p.title while
+    ul
+        li <code>()</code>内に<span class='keyword'>条件式</span>のみを記述する
+        code.code
+            | while ( 条件式 ) {
+            |     // 処理
+            | }
+        li <code>while</code>と似た<code>do while</code>は topics として追加予定
+
+    p.title for
+    ul
+        li <code>()</code>内に<span class='keyword'>初期化</span>、<span class='keyword'>条件式</span>、<span class='keyword'>増減式</span>を<code>;</code>で区切りながら記述する
+        code.code
+            | for ( 初期化; 条件式; 増減式) {
+            |     // 処理
+            | }
 
 </template>
 
@@ -221,16 +316,21 @@ export default class StandardExp extends Vue {}
     padding: .1rem
 
 .title
-    border-left: solid 5px orange
-    background: #B9F6CA
+    border-left: solid 7px orange
+    // background: #B9F6CA
     padding .5rem
     margin: .2rem 0
     font-weight: bold
+
+    background: -moz-linear-gradient(top, #B9F6CA 40%,transparent);
+    background: -webkit-linear-gradient(top, #B9F6CA 40%,transparent);
+    background: linear-gradient(to bottom, #B9F6CA 40%,transparent);
 
     code
         font-size: 1rem
     li
         margin: .2rem 0
+
 
 /** ul要素後に改行を入れる */
 ul::after
@@ -255,7 +355,7 @@ code
     font-size: 1.1rem
 
 .keyword
-    padding: 0 .5rem
+    padding: .1rem .5rem
     background: linear-gradient(transparent 0%, #82B1FF 0%)
     border-radius: 20px
 
@@ -282,4 +382,9 @@ code
     background: #FFCDD2
     padding: .15rem .5rem
     margin: 1rem
+
+ol > li
+    background: linear-gradient(transparent 50%, #ffff66 60%)
+    width: fit-content
+    margin: .2rem 0
 </style>
