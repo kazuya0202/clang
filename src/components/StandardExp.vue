@@ -232,11 +232,11 @@
             | また、<code>{ }</code>内の処理が1文の場合、<code>{ }</code>省略可能
         br
         details(style='background: #C5E1A5; padding: .1rem .2rem')
-            summary 繰り返しの考えかた
+            summary 繰り返しの考え方
             v-divider
             details(style='background: #81D4FA; padding: .2rem .5rem')
                 summary sample code
-                p.type-bg(style='text-align: center') <code>while</code>と<code>for</code>で同じことをするコード
+                p.type-bg(style='width: fit-content; margin: auto') <code>while</code>と<code>for</code>で同じことをするコード
                 code.code(style='width: fit-content')
                     | // while
                     | int i;    // 宣言
@@ -252,12 +252,15 @@
                     |     printf("%d回目\n", i + 1);    // 処理
                     | }
                 | <br><br>
-                p.type-bg(style='text-align: center') それぞれ以下のような結果が得られる
+                p.type-bg(style='width: fit-content; margin: auto') それぞれ以下のような結果が得られる
+                br
                 .exec-result(style='width: 50%; margin: auto')
                     | 1回目<br>2回目<br>3回目<br>4回目<br>5回目<br>6回目<br>7回目<br>8回目<br>9回目<br>10回目
 
                 | <br>
             v-divider
+            br
+            p.type-bg(style='width: fit-content; margin: auto') 10回処理を繰り返すプログラムの考え方
             ol(style='background: #FFCCBC;')
                 li 変数<code>i</code>を宣言
                 v-divider
