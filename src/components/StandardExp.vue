@@ -64,6 +64,38 @@
     p.title 型とreturn値
     ul
         li 関数の返り値である<code>return</code>は、<code>型</code>によって変わる
+        code.code
+            | &lt;型&gt; 関数名() {
+            |     ...
+            |     &lt;return文&gt;
+            | }
+        tt
+            table(border=1)
+                tr
+                    th 型
+                    th return文
+                tr
+                    td void
+                    td return;
+                tr
+                    td int
+                    td return <span class='type-bg'>整数</span>;
+                tr
+                    td float
+                    td return <span class='type-bg'>実数</span>;
+                tr
+                    td double
+                    td return <span class='type-bg'>実数</span>;
+                tr
+                    td char
+                    td return <span class='type-bg'>文字</span>;
+                tr
+                    td char[]
+                    td return <span class='type-bg'>文字列</span>;
+                tr
+                    td bool
+                    td return <span class='type-bg'>真偽値</span>;
+
         li.frame <code>void</code>：<code>return;</code> <br>
             | <code>int</code>：<code>return <span class='type-bg'>整数</span>;</code> <br>
             | <code>float</code>：<code>return <span class='type-bg'>実数</span>;</code> <br>
@@ -369,8 +401,9 @@ code
     width: fit-content
 
 .type-bg
-    background: #CE93D8
-    padding: .1rem .5rem
+    background: #F48FB1
+    border-radius: 5px
+    padding: .15rem .5rem
 
 .exec-result
     width: 100%
@@ -390,4 +423,21 @@ ol > li
     background: linear-gradient(transparent 50%, #ffff66 60%)
     width: fit-content
     margin: .2rem 0
+
+table
+    border-collapse: collapse
+    font-weight: bold
+    border: solid 2px black
+    th
+        color: white
+        background: #00ACC1
+        border-bottom: solid 1px black
+    // td
+    //     background: #EEEEEE
+    *
+        padding .3rem .5rem
+
+td:nth-of-type(1)
+    text-align: center
+    background: #FFD180
 </style>
