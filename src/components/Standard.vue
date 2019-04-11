@@ -1,7 +1,10 @@
 <template lang='pug'>
 .standard
     .container
-        h1 C言語 練習問題集 <きほんのきほん>
+        h1 C言語 練習問題 <きほんのきほん>
+        h4(style='background: #FFCDD2; border-radius: 5px; width: fit-content; margin: auto')
+            | スマートフォンで見る場合は横画面にすると読みやすいです
+        br
         //- h4(style='text-align: right') 編集: 一本の矢
         //-
             v-btn(color='#1976D2' dark style='padding: 0 20px') 解説ページへ

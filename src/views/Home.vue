@@ -1,7 +1,7 @@
 <template lang='pug'>
 v-layout#Home.grey.lighten-4(fill-height column)
     .main-pane.white.elevation-3
-        v-btn(:to='{ name: "standard-exp"}' color='purple') press to [ standard-exp ]
+        // v-btn(:to='{ name: "standard-exp"}' color='purple') press to [ standard-exp ]
 
         standard
 
