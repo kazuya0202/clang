@@ -1,18 +1,6 @@
 <template lang='pug'>
-.standard
-    .container
-        h1 C言語 練習問題 <きほんのきほん>
-        h4(style='background: #FFCDD2; border-radius: 5px; width: fit-content; margin: auto')
-            | スマートフォンで見る場合は横画面にすると読みやすいです
-        br
-        //- h4(style='text-align: right') 編集: 一本の矢
-        //-
-            v-btn(color='#1976D2' dark style='padding: 0 20px') 解説ページへ
-                router-link(to='StandardExp')
-            br
-        //- br
-        v-chip(dark color='#BA68C8' text-color='black').title 標準入出力 (stdio)
-
+v-layout.standard.grey.lighten-4(fill-height column)
+    .main-pane.white.elevation-3
     //- 1
     .contents
         h3.question Question {{ counter() }}
@@ -113,18 +101,13 @@
                 | }
 
 
-
-
-
-
-
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Standard extends Vue {
+export default class VariableTypeQues extends Vue {
     protected desc: string = 'と表示するプログラムを作成せよ';
     protected includeStr: string = '#include <stdio.h>';
     protected count: number = 0;
@@ -136,18 +119,11 @@ export default class Standard extends Vue {
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 
-.standard
-    *
-        padding: 0.4rem
+// .standard
+//     *
+//         padding: 0.5rem
 
-    .container
-        text-align: center
 
-.title
-    padding: 3px 15%
-    font-size: 1.2rem
-    margin: auto
-    font-weight: bold
 
 .contents
     text-align: left
@@ -162,6 +138,9 @@ export default class Standard extends Vue {
     background: black
     color: white
     font-size: 1.1rem
+
+code
+    overflow-x: auto
 
 .code
     background: #263238
@@ -180,5 +159,21 @@ export default class Standard extends Vue {
     border-top: solid 1px #FF1744
     content: ''
     flex-grow: 1
+
+
+div::-webkit-scrollbar{
+    width: 6px;
+}
+div::-webkit-scrollbar-track{
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0 0 2px #777;
+}
+div::-webkit-scrollbar-thumb{
+    background: #aaa;
+    border-radius: 10px;
+    box-shadow: none;
+}
 
 </style>

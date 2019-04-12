@@ -2,6 +2,8 @@
 .standard-exp
     h1(style='text-align: center; border-bottom: solid 3px #0277BD; width: 250px; margin: auto') 解説ページ
     br
+    .unit-title
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline) 　　C言語のきほん　　
 
     p.title #include &lt;stdio.h&gt;
     ul
@@ -54,267 +56,10 @@
             | （<span class='lookat'>return 0 ;</span>だけが<span class='lookat'>return</span>と固定観念を持ってはダメ）
     br
 
-    p.title 変数
-    ul
-        li 一時的にメモリ上に領域が確保され、数値や文字などを記憶しておくことができる
-        li 変数名の先頭に数字を使うことはできない
-    br
+    v-divider
+    .next-btn
+        v-btn(:to='{ name: "type-exp"}' color='primary' flat) next. 変数と型 >>
 
-
-    p.title 型
-    ul
-        li 浮動小数点型はコンピュータの特性上誤差が生じることがある
-    tt
-        table(border=1)
-            tr
-                th 型
-                th 意味
-            tr
-                td int
-                td 整数型
-            tr
-                td float
-                td 浮動小数点型（単精度）
-            tr
-                td double
-                td 浮動小数点型（倍精度）
-            tr
-                td char
-                td 文字型
-            tr
-                td bool
-                td 論理型（ <span class='lookat'>true</span> / <span class='lookat'>false</span> ）
-    br
-
-    p.title 型とreturn値
-    ul
-        li 関数の返り値である<span class='lookat'>return</span>は、<span class='lookat'>型</span>によって変わる
-        li 主な書き方は以下の通り（ 下の表と組み合わせて ）
-        code.code
-            | &lt;型&gt; 関数名() {
-            |     ...
-            |     &lt;return文&gt;
-            | }
-    br
-    tt
-        table(border=1)
-            tr
-                th 型
-                th return文
-            tr
-                td void
-                td return;
-            tr
-                td int
-                td return <span class='lookat'>整数</span>;
-            tr
-                td float
-                td return <span class='lookat'>実数</span>;
-            tr
-                td double
-                td return <span class='lookat'>実数</span>;
-            tr
-                td char
-                td return <span class='lookat'>文字</span>;
-            tr
-                td char[]
-                td return <span class='lookat'>文字列</span>;
-            tr
-                td bool
-                td return <span class='lookat'>真偽値</span>;
-    br
-
-    p.title 変数の宣言 / 初期化
-    ul
-        li 変数は以下のように<span class='keyword'>宣言</span>する
-        code.code int hoge;
-        | <br><br>
-
-        li <span class='keyword'>初期化</span>：変数宣言時に初期値を設定すること（代入演算子を用いる）
-        li <span class='lookat'>=</span>：代入演算子
-            | <br>数学の<span class='lookat'>=</span>（等しい）とは異なり、右辺のデータを左辺に<span class='lookat'>代入する</span>という意味
-        code.code int fuga = 100;
-        | <br><br>
-
-        li <span class='lookat'>&lt;型&gt;</span>の前に<span class='lookat'>const</span>をつけることで<span class='keyword'>定数</span>（変更不可能な変数）を宣言できる
-            | <br> また、定数を宣言するときは初期値を必ず設定する
-        code.code const float PI = 3.141592653;
-    br
-
-    p.title キャスト
-    ul
-        li <span class='keyword'>キャスト</span>：明示的に変数の型を変換すること（明示的型変換とも呼ばれる）
-        li 代入や式中では暗黙的に変換することも可能
-        .frame 暗黙型変換の優先順序　→　
-            | <span class='lookat'>double</span> &gt; <span class='lookat'>float</span> &gt; <span class='lookat'>int</span> &gt; <span class='lookat'>char</span>
-        li 明示的型変換は以下のように使われる
-            code.code
-                | // (型名)式
-                | double pi = 3.14;
-                | int num = (int)pi;
-    br
-
-    p.title 算術演算子
-    tt
-        table(border=1)
-            tr
-                th 演算子
-                th 意味
-            tr
-                td +
-                td 加算演算子
-            tr
-                td -
-                td 減算演算子
-            tr
-                td *
-                td 乗算演算子（ 数学記号の<span class='lookat'>×</span> ）
-            tr
-                td /
-                td 除算演算子（ 数学記号の<span class='lookat'>÷</span> ）
-            tr
-                td %
-                td 剰余演算子（ 余りを求める ）
-    br
-    code.code
-        | printf("%d\n", 10 % 5);
-        | printf("%d\n", 2 + 3 * 5);
-    .exec-result
-        samp 0<br>17
-    br
-    li プログラムでも数学と同じように<span class='lookat'>( )</span>で数式を囲むと演算順序が優先される
-    code.code
-        | printf("%d\n", (2 + 3) * 5);
-    .exec-result
-        samp 25
-    br
-
-    p.title 複合代入演算子
-    ul
-        li 四則演算(+ %)と代入を同時に行う場合の省略記法
-            | <br>（ただし、左辺と右辺に同じ変数がある場合のみ）
-        tt
-            table(border=1)
-                tr
-                    th 演算式
-                    th 処理
-                tr
-                    td a += b
-                    td a + b して a に代入
-                tr
-                    td a -= b
-                    td a - b して a に代入
-                tr
-                    td a *= b
-                    td a * b して a に代入
-                tr
-                    td a /= b
-                    td a / b して a に代入
-        br
-        code.code
-            | // 従来の四則演算と代入
-            | sum = sum + x;
-            |
-            | // 複合代入
-            | sum += x;
-    br
-
-    p.title 単項演算子
-    ul
-        <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと）
-        // .frame <code>x++</code> = <code>x += 1</code> / <code>x--</code> = <code>x -= 1</code>
-        tt
-            table(border=1)
-                tr
-                    th 演算式
-                    th(colspan=2) 処理
-                tr
-                    td x++
-                    td 演算してからxに1加算（ 後置型 ）
-                    td x += 1
-                tr
-                    td ++x
-                    td xに1加算してから演算（ 前置型 ）
-                    td -
-                tr
-                    td x--
-                    td 演算してからxを1減算（ 後置型 ）
-                    td x -= 1
-                tr
-                    td --x
-                    td xを1減算してから演算（ 前置型 ）
-                    td -
-    br
-
-    p.title printf()
-    ul
-        li 標準出力関数（読み方は「プリントエフ」）
-        li 主な形は<span class='lookat'>printf("XXX\n");</span>
-        | この場合はコンソール画面に<span class='prompt'><samp>XXX</samp></span>と出力される
-        li <span class='lookat'>\n</span>については次項に記載
-    br
-
-    p.title エスケープシーケンス（特殊文字）
-    ul
-        li |￥と \ は環境によって表示が異なるが同意（Macでは必ず \ ）
-        tt
-            table(border=1)
-                tr
-                    th コード
-                    th 意味
-                tr
-                    td \n
-                    td 改行
-                tr
-                    td \0
-                    td NULL（数字の「0」と同意）（読み方はナル or ヌル）
-                tr
-                    td \'
-                    td シングルクォーテーション「'」を表示
-                tr
-                    td \"
-                    td ダブルクォーテーション「"」を表示
-    br
-
-    p.title scanf()
-    ul
-        li 標準入力関数（読み方は「スキャンエフ」）
-        li 主な形は<span class='lookat'>scanf("%d", &x);</span>
-        | この場合はコンソールが入力待ち状態になり、入力することができる
-        li <span class='lookat'>%d</span>については次項に記載
-    br
-
-    p.title 変換指定子
-    ul
-        li <span class='lookat'>printf</span>や<span class='lookat'>scanf</span>に用いる
-        tt
-            table(border=1)
-                tr
-                    th 変換指定子
-                    th 型・意味
-                tr
-                    td %d
-                    td int - 10進数表示
-                tr
-                    td %f
-                    td float
-                tr
-                    td %lf
-                    td double
-                tr
-                    td %c
-                    td char
-                tr
-                    td %s
-                    td char[] - 文字列（文字配列）
-                tr
-                    td %o
-                    td int - 8進数表示
-                tr
-                    td %x
-                    td int - 16進数表示
-        li それぞれ様々なオプションがある（今は書く気ないです。詳しくは「変換指定子 オプション」で検索）
-    br
 
     p.title 条件分岐
     ul
@@ -340,7 +85,7 @@
     ul
         | 基本的に数学の記号と意味は同じだが、
         | プログラムの等価演算子は数学の<span class='lookat'>=</span>とは異なるため注意する
-        tt
+        pre
             table(border=1)
                 tr
                     th 記号
@@ -366,7 +111,7 @@
 
     p.title 論理演算子
     var(style='padding: 0 25%') A = 0 (false), B = 1 (true)とする
-    tt
+    pre
         table(border=1)
             tr
                 th 演算子
@@ -403,7 +148,7 @@
             | また、<span class='lookat'>{ }</span>内の処理が1文の場合、<span class='lookat'>{ }</span>省略可能
         br
         li 主な使い分けは以下の通り
-    tt
+    pre
         table(border=1)
             tr
                 th 構文
@@ -505,106 +250,7 @@ export default class StandardExp extends Vue {}
 
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
+@require '~@/components/stylus-pane/exp-main.styl';
 
-.standard-exp
-    padding: .1rem
-    *
-        line-height: 1.8
-
-.title
-    border-left: solid 7px orange
-    padding .5rem
-    margin: .2rem 0
-    font-weight: bold
-
-    // background: #B9F6CA == rgb(185, 246, 202)
-    background: -moz-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0));
-    background: -webkit-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0));
-    background: linear-gradient(to bottom, #B9F6CA 40%, rgba(185, 246, 202, 0));
-
-    code
-        font-size: 1rem
-    li
-        margin: .2rem 0
-
-
-/** ul要素後に改行を入れる */
-// ul::after
-    // content: '\A'
-    // white-space: pre
-
-.prompt
-    margin: 0 .5rem
-    padding: 0 .5em
-    border-radius: 10px
-    background: black
-    color: white
-
-code
-    margin: 0 .15rem
-
-.code
-    width: 100%
-    background: #263238
-    color: white
-    padding: 5px 20px
-    font-size: 1.1rem
-
-.keyword
-    padding: .1rem .5rem
-    background: #82B1FF
-    border-radius: 20px
-
-.frame
-    margin: .2rem 0
-    padding: .3rem
-    border: solid 2px #FFCDD2
-    width: fit-content
-
-.lookat
-    background: #F48FB1
-    border-radius: 5px
-    padding: .15rem .5rem
-    margin: 0 .1rem
-
-.exec-result
-    width: 100%
-    background: #B39DDB
-    margin: .5rem 0
-    padding: 0 1rem
-    border-radius: 10px
-
-.exec-result::before
-    content: '実行結果\A'
-    white-space: pre
-    background: #FFCDD2
-    padding: .15rem .5rem
-    margin: 1rem
-
-ol > li
-    background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%);
-    background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%);
-    background: linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
-    width: fit-content
-    margin: .2rem 0
-
-table
-    margin: auto
-    border-collapse: collapse
-    font-weight: bold
-    border: solid 2px black
-    th
-        padding .3rem 1rem
-        color: white
-        background: #00ACC1
-        border-bottom: solid 1px black
-    td
-        padding .3rem 1rem
-        background: #EEEEEE
-
-
-td:nth-of-type(1), td:nth-of-type(3)
-    text-align: center
-    background: #FFD180
-
+// .standard-exp
 </style>

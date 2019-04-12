@@ -1,0 +1,142 @@
+*
+    line-height: 1.8
+
+.title
+    border-left: solid 7px orange
+    padding .5rem
+    margin: .2rem 0
+    font-weight: bold
+
+    // background: #B9F6CA == rgb(185, 246, 202)
+    background: -moz-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0));
+    background: -webkit-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0));
+    background: linear-gradient(to bottom, #B9F6CA 40%, rgba(185, 246, 202, 0));
+
+    code
+        font-size: 1rem
+    li
+        margin: .2rem 0
+
+
+/** ul要素後に改行を入れる */
+// ul::after
+    // content: '\A'
+    // white-space: pre
+
+.prompt
+    margin: 0 .5rem
+    padding: 0 .5em
+    border-radius: 10px
+    background: black
+    color: white
+
+code
+    margin: 0 .15rem
+    overflow-x: auto
+
+.code
+    width: 100%
+    background: #263238
+    color: white
+    padding: 5px 20px
+    font-size: 1.1rem
+
+.keyword
+    padding: .1rem .5rem
+    background: #82B1FF
+    border-radius: 20px
+
+.frame
+    margin: .2rem 0
+    padding: .3rem
+    border: solid 2px #FFCDD2
+    width: fit-content
+
+.lookat
+    // background: #F48FB1
+    background: #ffa8c5
+    border-radius: 5px
+    padding: .15rem .5rem
+    margin: 0 .1rem
+
+.exec-result
+    width: 100%
+    background: #B39DDB
+    margin: .5rem 0
+    padding: 0 1rem
+    border-radius: 10px
+
+.exec-result::before
+    content: '実行結果\A'
+    white-space: pre
+    background: #FFCDD2
+    padding: .15rem .5rem
+    margin: 1rem
+
+ol > li
+    background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%);
+    background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%);
+    background: linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+    width: fit-content
+    margin: .2rem 0
+
+table
+    margin: auto
+    border-collapse: collapse
+    font-weight: bold
+    border: solid 2px black
+    th
+        padding .3rem 1rem
+        color: white
+        background: #00ACC1
+        border-bottom: solid 1px black
+    td
+        padding .3rem 1rem
+        background: #EEEEEE
+
+td:nth-of-type(1), td:nth-of-type(3)
+    text-align: center
+    background: #FFD180
+
+.unit-title
+    text-align: center
+    font-weight: bold
+
+
+.prev-next-btn
+    display: flex
+    justify-content: space-between
+    text-align: center
+    margin: auto
+
+.prev-btn
+    text-align: left
+    margin: auto
+
+.next-btn
+    text-align: right
+    margin: auto
+
+.main-pane
+    min-height: 100%
+    width: 100%
+    max-width: 600px
+    margin-left: auto
+    margin-right: auto
+    padding: 3rem 2rem
+
+
+
+::-webkit-scrollbar
+    width: 6px;
+
+::-webkit-scrollbar-track
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0 0 2px #777;
+
+::-webkit-scrollbar-thumb
+    background: #aaa;
+    border-radius: 10px;
+    box-shadow: none;
