@@ -1,32 +1,60 @@
 <template lang='pug'>
-v-layout#Home.grey.lighten-4(fill-height column)
+v-layout#Home(fill-height column)
     .main-pane.white.elevation-3
-        h1(style='text-align: center') C言語 <きほんのきほん>
-        h4(style='background: #FFCDD2; border-radius: 5px; width: fit-content; margin: auto; padding: .4rem')
+        .icons
+            v-icon(color='red' large) mdi-language-c
+            v-icon(color='red' large) mdi-language-cpp
+            v-icon(color='red' large) mdi-language-csharp
+        h3(class='text-sm-center' style='text-decoration: underline') C言語学習サイト（仮） ｜ C言語復讐サイト（決定）
+        v-card(class='text-sm-center' color='#8bc440').pa-4.ma-3.font-weight-black.headline
+            | C言語 <きほんのきほん>
+        // h1.main-title C言語 <きほんのきほん>
+
+        .icon-elem
+            v-icon(:size='20') mdi-pencil-plus
+            h4 一本の矢は折れやすい
+
+        br
+        v-card(class='text-sm-center' color='#a8e0d7' style='width: fit-content; margin: auto').px-4.py-2.font-weight-bold.my-2
+            | 本サイトに書かれていることは<br>筆者の感じたように書いているので<br>厳密な意味では異なる場合があります
+        v-card(class='text-sm-center' color='#FFCDD2' style='width: fit-content; margin: auto').pa-2.font-weight-bold
             | スマートフォンは横画面がおすすめ
-        br
-        //- v-chip.unit-title(dark color='#BA68C8' text-color='black') 標準入出力 (stdio)
-        //- h4(style='text-align: right') 編集: 一本の矢
-        //-
-            v-btn(color='#1976D2' dark style='padding: 0 20px') 解説ページへ
-                router-link(to='StandardExp')
-            br
-        //- br
-
-        standard-exp
 
         br
-        v-divider
+        .unit-title
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline) 　　もくじ　　
+
+        v-list
+            v-list-group(v-for='item in $store.state.comment' :key='item.title'
+                        v-model='item.active' :prepend-icon='item.action' no-action)
+                template(v-slot:activator)
+                    v-list-tile(color='green' dark)
+                        v-list-tile-content
+                            v-list-tile-title.font-weight-black {{ item.title }}ページ
+
+                v-list-tile(v-for='subItem in item.items' :key='subItem.title'
+                            :to='{name: subItem.name}' v-scroll-to='"body"')
+                    v-list-tile-action
+                        v-icon mdi-rhombus-medium
+                    v-list-tile-content
+                        v-list-tile-title {{ subItem.title }}
+
+        // ul
+            li
+                // v-btn(:to='{ name: "standard-exp"}' color='primary' flat) C言語のきほん
+                a() clang
+            li
+                v-btn(:to='{ name: "type-exp"}' color='primary' flat) 変数と型
+            li
+                v-btn(:to='{ name: "operate-exp"}' color='primary' flat) 演算
+
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
-import StandardExp from '@/components/Standard-exp.vue';
 
 @Component({
-    components: {
-        StandardExp,
-    },
+    components: {},
 })
 export default class Home extends Vue {}
 </script>
@@ -41,11 +69,58 @@ html
 
 #Home
     .main-pane
+        *
+            margin: .2rem 0
         min-height: 100%
-        width: 100%
-        max-width: 600px
+        width: 80%
+        max-width: 800px
         margin-left: auto
         margin-right: auto
         padding: 3rem 2rem
+
+    .icons
+        *
+            margin: 0 .5rem
+        display: flex
+        // justify-content: space-around
+        align-items: center
+        text-align: center
+        margin: auto
+
+    .icon-elem
+        *
+            margin: 0 .2rem
+        display: flex
+        justify-content: flex-end
+
+    .icons::before, .icons::after
+        display: block
+        content: ''
+        flex-grow: 1
+        height: 1px
+    .icons::before
+        margin-right: 1rem
+        background: linear-gradient(-90deg, red, rgba(255, 0, 0, 0))
+    .icons::after
+        margin-left: 1rem
+        background: linear-gradient(90deg, red, rgba(255, 0, 0, 0))
+
+    .main-title
+        margin: auto
+        text-align: center
+        background: lightgreen
+        background: linear-gradient(25deg, rgba(241, 63, 121, 0) 3%, #FFC778)
+        // width: fit-content
+        padding: 1rem
+        border-radius: 20px
+
+    .unit-title
+        text-align: center
+        font-weight: bold
+
+    ul > li
+        list-style: none
+    ul > li::before
+        content: '★ '
 
 </style>

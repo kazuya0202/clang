@@ -1,0 +1,14 @@
+わたし、気になります！
+
+○h1.exp-topの後に毎回<br>いれるくらいなら
+exp-top::after
+	content: '\A'
+	white-space: pre
+したらいいじゃないですか！
+わたし、気になります！
+
+○.main-pane.white...の.whiteは
+.main-paneのbackgroundなんだから
+stylusに書いておけばいいじゃないですか！
+わたし、気になります！
+

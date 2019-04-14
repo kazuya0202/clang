@@ -1,7 +1,7 @@
 <template lang='pug'>
-v-layout.input-output.grey.lighten-4(fill-height column)
+v-layout.variable-type(fill-height column)
     .main-pane.white.elevation-3
-        h1(style='text-align: center; border-bottom: solid 3px #0277BD; width: 250px; margin: auto') 解説ページ
+        h1.exp-top 解説ページ
         br
         .unit-title
             v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline) 　　変数と型　　
@@ -15,26 +15,25 @@ v-layout.input-output.grey.lighten-4(fill-height column)
         p.title 型
         ul
             li 浮動小数点型はコンピュータの特性上誤差が生じることがある
-        pre
-            table(border=1)
-                tr
-                    th 型
-                    th 意味
-                tr
-                    td int
-                    td 整数型
-                tr
-                    td float
-                    td 浮動小数点型（単精度）
-                tr
-                    td double
-                    td 浮動小数点型（倍精度）
-                tr
-                    td char
-                    td 文字型
-                tr
-                    td bool
-                    td 論理型（<span class='lookat'>true</span> / <span class='lookat'>false</span>）
+        table(border=1)
+            tr
+                th 型
+                th 意味
+            tr
+                td int
+                td 整数型
+            tr
+                td float
+                td 浮動小数点型（単精度）
+            tr
+                td double
+                td 浮動小数点型（倍精度）
+            tr
+                td char
+                td 文字型
+            tr
+                td bool
+                td 論理型（<span class='lookat'>true</span> / <span class='lookat'>false</span>）
         br
 
         p.title 型とreturn値
@@ -47,32 +46,31 @@ v-layout.input-output.grey.lighten-4(fill-height column)
                 |     &lt;return文&gt;
                 | }
         br
-        pre
-            table(border=1)
-                tr
-                    th 型
-                    th return文
-                tr
-                    td void
-                    td return;
-                tr
-                    td int
-                    td return <span class='lookat'>整数</span>;
-                tr
-                    td float
-                    td return <span class='lookat'>実数</span>;
-                tr
-                    td double
-                    td return <span class='lookat'>実数</span>;
-                tr
-                    td char
-                    td return <span class='lookat'>文字</span>;
-                tr
-                    td char[]
-                    td return <span class='lookat'>文字列</span>;
-                tr
-                    td bool
-                    td return <span class='lookat'>真偽値</span>;
+        table(border=1)
+            tr
+                th 型
+                th return文
+            tr
+                td void
+                td return;
+            tr
+                td int
+                td return <span class='lookat'>整数</span>;
+            tr
+                td float
+                td return <span class='lookat'>実数</span>;
+            tr
+                td double
+                td return <span class='lookat'>実数</span>;
+            tr
+                td char
+                td return <span class='lookat'>文字</span>;
+            tr
+                td char[]
+                td return <span class='lookat'>文字列</span>;
+            tr
+                td bool
+                td return <span class='lookat'>真偽値</span>;
         br
 
         p.title 変数の宣言 / 初期化
@@ -104,10 +102,11 @@ v-layout.input-output.grey.lighten-4(fill-height column)
                     | double pi = 3.14;
                     | int num = (int)pi;
 
+        br
         v-divider
         .prev-next-btn
-            v-btn(:to='{ name: "standard-exp"}' color='primary' flat) << prev. C言語のきほん
-            v-btn(:to='{ name: "operate-exp"}' color='primary' flat) next. 演算 >>
+            v-btn(v-scroll-to='"body"' :to='{ name: "standard-exp"}' color='primary' flat) << prev. C言語のきほん
+            v-btn(v-scroll-to='"body"' :to='{ name: "operate-exp"}' color='primary' flat) next. 演算 >>
 
 </template>
 
@@ -115,12 +114,12 @@ v-layout.input-output.grey.lighten-4(fill-height column)
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Input_Output extends Vue {}
+export default class VariableType extends Vue {}
 </script>
 
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 @require '~@/components/stylus-pane/exp-main.styl';
 
-.input-output {}
+.variable-type {}
 </style>

@@ -1,12 +1,13 @@
 <template lang='pug'>
-v-layout.operate-exp.grey.lighten-4(fill-height column)
+v-layout.operate(fill-height column)
     .main-pane.white.elevation-3
-        h1(style='text-align: center; border-bottom: solid 3px #0277BD; width: 250px; margin: auto') 解説ページ
+        h1.exp-top 解説ページ
         br
         .unit-title
             v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline) 　　演算　　
+
         p.title 算術演算子
-        pre
+        ul
             table(border=1)
                 tr
                     th 演算子
@@ -26,42 +27,43 @@ v-layout.operate-exp.grey.lighten-4(fill-height column)
                 tr
                     td %
                     td 剰余演算子（ 余りを求める ）
-        br
-        code.code
-            | printf("%d\n", 10 % 5);
-            | printf("%d\n", 2 + 3 * 5);
-        .exec-result
-            samp 0<br>17
-        br
-        li プログラムでも数学と同じように<span class='lookat'>( )</span>で数式を囲むと演算順序が優先される
-        code.code
-            | printf("%d\n", (2 + 3) * 5);
-        .exec-result
-            samp 25
+            br
+
+            code.code
+                | printf("%d\n", 10 % 5);
+                | printf("%d\n", 2 + 3 * 5);
+            .exec-result
+                samp 0<br>17
+            br
+            li プログラムでも数学と同じように<span class='lookat'>( )</span>で数式を囲むと演算順序が優先される
+            code.code
+                | printf("%d\n", (2 + 3) * 5);
+            .exec-result
+                samp 25
         br
 
         p.title 複合代入演算子
         ul
-            li 四則演算(+ %)と代入を同時に行う場合の省略記法
+            li 算術演算と代入を同時に行う場合の省略記法
                 | <br>（ただし、左辺と右辺に同じ変数がある場合のみ）
-            pre
-                table(border=1)
-                    tr
-                        th 演算式
-                        th 処理
-                    tr
-                        td a += b
-                        td a + b して a に代入
-                    tr
-                        td a -= b
-                        td a - b して a に代入
-                    tr
-                        td a *= b
-                        td a * b して a に代入
-                    tr
-                        td a /= b
-                        td a / b して a に代入
+            table(border=1)
+                tr
+                    th 演算式
+                    th 処理
+                tr
+                    td a += b
+                    td a + b して a に代入
+                tr
+                    td a -= b
+                    td a - b して a に代入
+                tr
+                    td a *= b
+                    td a * b して a に代入
+                tr
+                    td a /= b
+                    td a / b して a に代入
             br
+
             code.code
                 | // 従来の四則演算と代入
                 | sum = sum + x;
@@ -98,20 +100,21 @@ v-layout.operate-exp.grey.lighten-4(fill-height column)
         br
         v-divider
         .prev-next-btn
-            v-btn(:to='{ name: "type-exp"}' color='primary' flat) << prev. 変数と型
-            v-btn(:to='{ name: "io-exp"}' color='primary' flat) next. 入出力 >>
+            v-btn(v-scroll-to='"body"' :to='{ name: "type-exp"}' color='primary' flat) << prev. 変数と型
+            v-btn(v-scroll-to='"body"' :to='{ name: "io-exp"}' color='primary' flat) next. 入出力 >>
+
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class OperateExp extends Vue {}
+export default class Operate extends Vue {}
 </script>
 
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 @require '~@/components/stylus-pane/exp-main.styl';
 
-.operate-exp {}
+.operate {}
 </style>
