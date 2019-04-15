@@ -51,6 +51,11 @@ export default new Router({
             name: 'loop-exp',
             component: () => import(`@/components/${path.exp}/Loop.vue`),
         },
+        {
+            path: `${exp}/配列`,
+            name: 'array-exp',
+            component: () => import(`@/components/${path.exp}/Array.vue`),
+        },
 
 
 

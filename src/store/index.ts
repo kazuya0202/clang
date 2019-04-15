@@ -28,22 +28,35 @@ export default new Vuex.Store({
             },
         ],
 
-        exp: [
-            {
-                title: 'C言語のきほん',
-                name: 'standard-exp',
-            },
-            {
-                title: '変数と型',
-                name: 'type-exp',
-            },
+        expElements: [
+            { title: 'C言語のきほん', name: 'standard-exp' },
+            { title: '変数と型', name: 'type-exp' },
+            { title: '演算', name: 'operate-exp' },
+            { title: '入出力', name: 'io-exp'},
+            { title: '条件分岐', name: 'condition-exp'},
+            { title: '繰り返し', name: 'loop-exp' },
+            { title: '配列', name: 'array-exp' },
         ],
-        ques: [
-            {
-                title: '変数と型',
-                name: 'type-ques',
-            },
+        quesElements: [
+            { title: '入出力', name: 'io-ques' },
         ],
+
+        // exp: [
+        //     {
+        //         title: 'C言語のきほん',
+        //         name: 'standard-exp',
+        //     },
+        //     {
+        //         title: '変数と型',
+        //         name: 'type-exp',
+        //     },
+        // ],
+        // ques: [
+        //     {
+        //         title: '変数と型',
+        //         name: 'type-ques',
+        //     },
+        // ],
 
         items: [
             {

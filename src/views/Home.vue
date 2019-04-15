@@ -1,6 +1,7 @@
 <template lang='pug'>
 v-layout#Home(fill-height column)
     .main-pane.white.elevation-3
+
         .icons
             v-icon(color='red' large) mdi-language-c
             v-icon(color='red' large) mdi-language-cpp
@@ -22,7 +23,7 @@ v-layout#Home(fill-height column)
 
         br
         .unit-title
-            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline) 　　もくじ　　
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 Home
 
         v-list
             v-list-group(v-for='item in $store.state.comment' :key='item.title'
@@ -38,15 +39,6 @@ v-layout#Home(fill-height column)
                         v-icon mdi-rhombus-medium
                     v-list-tile-content
                         v-list-tile-title {{ subItem.title }}
-
-        // ul
-            li
-                // v-btn(:to='{ name: "standard-exp"}' color='primary' flat) C言語のきほん
-                a() clang
-            li
-                v-btn(:to='{ name: "type-exp"}' color='primary' flat) 変数と型
-            li
-                v-btn(:to='{ name: "operate-exp"}' color='primary' flat) 演算
 
 </template>
 
