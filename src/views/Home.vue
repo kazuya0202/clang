@@ -9,7 +9,6 @@ v-layout#Home(fill-height column)
         h3(class='text-sm-center' style='text-decoration: underline') C言語学習サイト（仮） ｜ C言語復讐サイト（決定）
         v-card(class='text-sm-center' color='#8bc440').pa-4.ma-3.font-weight-black.headline
             | C言語 <きほんのきほん>
-        // h1.main-title C言語 <きほんのきほん>
 
         .icon-elem
             v-icon(:size='20') mdi-pencil-plus
@@ -34,7 +33,7 @@ v-layout#Home(fill-height column)
                             v-list-tile-title.font-weight-black {{ item.title }}ページ
 
                 v-list-tile(v-for='subItem in item.items' :key='subItem.title'
-                            :to='{name: subItem.name}' v-scroll-to='"body"')
+                            v-scroll-to='"body"' :to='{name: subItem.name}')
                     v-list-tile-action
                         v-icon mdi-rhombus-medium
                     v-list-tile-content

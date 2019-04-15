@@ -39,7 +39,7 @@ v-app#app
     //- scroll to each element
     v-menu(v-model='menuFab' :close-on-content-click='false' :nudge-width='250' offset-x)
         template(#activator='{ on: menuFab }')
-            v-btn(color='pink' dark v-on='{ ...menuFab }' fixed bottom right fab small outline style='margin-bottom: 50px' @click='currentExp()')
+            v-btn(color='pink' dark v-on='{ ...menuFab }' fixed bottom right fab small outline style='margin-bottom: 50px')
                 v-icon mdi-vector-arrange-above
         v-list(class='scroll-y' style='max-height: 80vh')
             v-list-tile(:to='{ name: "Home" }' v-scroll-to='"body"'
@@ -52,8 +52,9 @@ v-app#app
             //- 解説ページなら
             div(v-if='currentExp() === 0')
                 v-divider
-                v-list-tile(v-model='curExp' v-for='subItem in $store.state.expElements'
-                            :to='{name: subItem.name}' :key='subItem.title')
+                v-list-tile(v-for='subItem in $store.state.expElements'
+                            :v-scroll-to="subItem.id" :key='subItem.title')
+                             //- :v-scroll-to='subItem.id'@click='$vuetify.goTo(subItem.id)'
                     v-list-tile-action
                         v-icon mdi-rhombus-medium
                     v-list-tile-content
@@ -62,8 +63,9 @@ v-app#app
             //- 問題ページなら
             div(v-else-if='currentExp() === 1')
                 v-divider
+                            //- :to='{name: subItem.name}'
                 v-list-tile(v-model='curExp' v-for='subItem in $store.state.quesElements'
-                            :to='{name: subItem.name}' :key='subItem.title')
+                            :v-scroll-to='`${subItem.id}`' :key='subItem.title')
                     v-list-tile-action
                         v-icon mdi-rhombus-medium
                     v-list-tile-content
@@ -86,9 +88,12 @@ export default class App extends Vue {
     // 今どのページにいるか
     // exp -> 0 / ques -> 1 / Home -> 2
     protected currentExp = () => {
-        if (location.href.indexOf('exp') !== -1) return 0;
-        else if (location.href.indexOf('ques') !== -1) return 1;
-        else return 2;
+        if (location.href.indexOf('exp') !== -1)
+            return 0;
+        else if (location.href.indexOf('ques') !== -1)
+            return 1;
+        else
+            return 2;
     }
 }
 </script>

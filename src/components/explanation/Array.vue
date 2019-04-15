@@ -1,7 +1,9 @@
 <template lang='pug'>
-v-layout.array-exp(fill-height column)
-    .main-pane.white.elevation-3
-        p.title あぁ＾～心がぴょんぴょんするんじゃぁ＾～
+.array-exp
+    .unit-title
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 配列
+    p.title あぁ＾～心がぴょんぴょんするんじゃぁ＾～
+
 </template>
 
 <script lang='ts'>

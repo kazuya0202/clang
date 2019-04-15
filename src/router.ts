@@ -59,6 +59,14 @@ export default new Router({
 
 
 
+        {
+            path: `/exp`,
+            name: 'exp-frame',
+            component: () => import(`@/components/ExpFrame.vue`),
+        },
+
+
+
         // questions
         {
             // 変数と型
