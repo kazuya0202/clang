@@ -53,8 +53,7 @@ v-app#app
             div(v-if='currentExp() === 0')
                 v-divider
                 v-list-tile(v-for='subItem in $store.state.expElements'
-                            :v-scroll-to="subItem.id" :key='subItem.title')
-                             //- :v-scroll-to='subItem.id'@click='$vuetify.goTo(subItem.id)'
+                            :key='subItem.title')
                     v-list-tile-action
                         v-icon mdi-rhombus-medium
                     v-list-tile-content
@@ -63,13 +62,15 @@ v-app#app
             //- 問題ページなら
             div(v-else-if='currentExp() === 1')
                 v-divider
-                            //- :to='{name: subItem.name}'
                 v-list-tile(v-model='curExp' v-for='subItem in $store.state.quesElements'
-                            :v-scroll-to='`${subItem.id}`' :key='subItem.title')
+                            :key='subItem.title')
                     v-list-tile-action
                         v-icon mdi-rhombus-medium
                     v-list-tile-content
                         v-list-tile-title {{ subItem.title }}
+            //- :v-scroll-to='subItem.id'@click='$vuetify.goTo(subItem.id)':v-scroll-to="subItem.id"
+                //- :to='{name: subItem.name}'
+                    //- :v-scroll-to='`${subItem.id}`'
 
     v-content#content
         router-view
