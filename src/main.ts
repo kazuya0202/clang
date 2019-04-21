@@ -7,7 +7,7 @@ import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store';
 
-// import scrollTo from 'vue-scrollto';
+// tslint:disable-next-line:no-var-requires
 const scrollTo = require('vue-scrollto');
 Vue.use(scrollTo);
 

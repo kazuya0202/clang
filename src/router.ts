@@ -3,76 +3,45 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-const exp = '/exp';
-const ques = '/ques';
-const path = {
-    exp: 'explanation',
-    ques: 'question',
-};
-
 export default new Router({
     routes: [
         {
-            path: '/',
-            name: 'Home',
+            path: '/', name: 'Home',
             component: () => import('@/views/Home.vue'),
         },
-        // explanation
+
+
         {
-            // C言語のきほん
-            path: `${exp}/C言語のきほん`,
-            name: 'standard-exp',
-            component: () => import(`@/components/${path.exp}/Standard.vue`),
+            path: '/exp1', name: 'exp-frame1',
+            component: () => import(`@/views/pages/ExpFrame1.vue`),
         },
         {
-            // 変数と型
-            path: `${exp}/変数と型`,
-            name: 'type-exp',
-            component: () => import(`@/components/${path.exp}/VariableType.vue`),
+            path: `/exp2`, name: 'exp-frame2',
+            component: () => import(`@/views/pages/ExpFrame2.vue`),
         },
         {
-            // 演算
-            path: `${exp}/演算`,
-            name: 'operate-exp',
-            component: () => import(`@/components/${path.exp}/Operate.vue`),
+            path: '/exp3', name: 'exp-frame3',
+            component: () => import('@/views/pages/ExpFrame3.vue'),
         },
         {
-            path: `${exp}/入出力`,
-            name: 'io-exp',
-            component: () => import(`@/components/${path.exp}/InputOutput.vue`),
-        },
-        {
-            path: `${exp}/条件分岐`,
-            name: 'condition-exp',
-            component: () => import(`@/components/${path.exp}/Condition.vue`),
-        },
-        {
-            path: `${exp}/繰り返し`,
-            name: 'loop-exp',
-            component: () => import(`@/components/${path.exp}/Loop.vue`),
-        },
-        {
-            path: `${exp}/配列`,
-            name: 'array-exp',
-            component: () => import(`@/components/${path.exp}/Array.vue`),
+            path: '/exp4', name: 'exp-frame4',
+            component: () => import('@/views/pages/ExpFrame4.vue'),
         },
 
 
 
         {
-            path: `/exp`,
-            name: 'exp-frame',
-            component: () => import(`@/components/ExpFrame.vue`),
+            path: `/ques1`,
+            name: 'ques-frame1',
+            component: () => import(`@/views/pages/QuesFrame1.vue`),
         },
-
-
 
         // questions
-        {
-            // 変数と型
-            path: `${ques}/入出力`,
-            name: 'io-ques',
-            component: () => import(`@/components/${path.ques}/InputOutput-ques.vue`),
-        },
+        // {
+        //     // 変数と型
+        //     path: `${ques}/入出力`,
+        //     name: 'io-ques',
+        //     component: () => import(`@/components/${path.ques}/InputOutput-ques.vue`),
+        // },
     ],
 });

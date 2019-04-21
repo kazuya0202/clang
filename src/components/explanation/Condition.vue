@@ -1,11 +1,9 @@
 <template lang='pug'>
-.condition
-    h1.exp-top 解説ページ
-    br
-    .unit-title#condition
-        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 条件分岐
+#condition
+    .unit-title
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold 条件分岐
 
-    p.title 条件分岐
+    p.title 条件
     ul
         li <span class='lookat'>if</span>（もしも～なら）を用いる
         li 主な書き方は以下の通り
@@ -28,44 +26,46 @@
     p.title 比較演算子
     ul
         li 基本的に数学の記号と意味は同じだが、プログラムの等価演算子は数学の<span class='lookat'>=</span>とは異なるため注意する
-        table(border=1)
-            tr
-                th 記号
-                th 意味
-                th 記号
-                th 意味
-            tr
-                td &gt;
-                td より大きい
-                td &gt;=
-                td 以上
-            tr
-                td &lt;
-                td より小さい
-                td &lt;=
-                td 以下
-            tr
-                td &#61;=
-                td 等しい
-                td !=
-                td 等しくない
+        .table-general.scrollable
+            table(border=1)
+                tr
+                    th 記号
+                    th 意味
+                    th 記号
+                    th 意味
+                tr
+                    td &gt;
+                    td より大きい
+                    td &gt;=
+                    td 以上
+                tr
+                    td &lt;
+                    td より小さい
+                    td &lt;=
+                    td 以下
+                tr
+                    td &#61;=
+                    td 等しい
+                    td !=
+                    td 等しくない
     br
 
     p.title 論理演算子
     var A = 0 (false), B = 1 (true) とする
-    table(border=1)
-        tr
-            th 演算子
-            th 意味
-        tr
-            td AND (&&)
-            td 論理和 （A && B → 0）
-        tr
-            td OR (||)
-            td 論理積 （A || B → 1）
-        tr
-            td NOT (!)
-            td 論理否定 （!A → 1）
+    .table-general.scrollable
+        table(border=1)
+            tr
+                th 演算子
+                th 意味
+            tr
+                td AND (&&)
+                td 論理和 （A && B → 0）
+            tr
+                td OR (||)
+                td 論理積 （A || B → 1）
+            tr
+                td NOT (!)
+                td 論理否定 （!A → 1）
     br
 
     p.title 比較演算子と論理演算子の組み合わせ
@@ -80,6 +80,7 @@
         | <br><br>
         li アルファベットが比較演算子で判断できるのは、ASCIIコードと呼ばれるもので連続的に管理されているから <br>
             | （ ASCIIコードについては topics として追記予定 ）
+//-
     br
     v-divider
     .prev-next-btn
@@ -98,6 +99,7 @@ export default class Condition extends Vue {}
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 @require '~@/components/stylus-pane/exp-main.styl';
+@require '~@/components/stylus-pane/table.styl';
 
-.condition {}
+#condition {}
 </style>

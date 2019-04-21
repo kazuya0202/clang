@@ -1,31 +1,30 @@
 <template lang='pug'>
-.operate
-    h1.exp-top 解説ページ
-    br
-    .unit-title#operate
-        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 演算
+#operate
+    .unit-title
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold 演算
 
     p.title 算術演算子
     ul
-        table(border=1)
-            tr
-                th 演算子
-                th 意味
-            tr
-                td +
-                td 加算演算子
-            tr
-                td -
-                td 減算演算子
-            tr
-                td *
-                td 乗算演算子（ 数学記号の<span class='lookat'>×</span> ）
-            tr
-                td /
-                td 除算演算子（ 数学記号の<span class='lookat'>÷</span> ）
-            tr
-                td %
-                td 剰余演算子（ 余りを求める ）
+        .table-general.scrollable
+            table(border=1)
+                tr
+                    th 演算子
+                    th 意味
+                tr
+                    td +
+                    td 加算演算子
+                tr
+                    td -
+                    td 減算演算子
+                tr
+                    td *
+                    td 乗算演算子（ 数学記号の<span class='lookat'>×</span> ）
+                tr
+                    td /
+                    td 除算演算子（ 数学記号の<span class='lookat'>÷</span> ）
+                tr
+                    td %
+                    td 剰余演算子（ 余りを求める ）
         br
 
         code.code
@@ -45,22 +44,23 @@
     ul
         li 算術演算と代入を同時に行う場合の省略記法
             | <br>（ただし、左辺と右辺に同じ変数がある場合のみ）
-        table(border=1)
-            tr
-                th 演算式
-                th 処理
-            tr
-                td a += b
-                td a + b して a に代入
-            tr
-                td a -= b
-                td a - b して a に代入
-            tr
-                td a *= b
-                td a * b して a に代入
-            tr
-                td a /= b
-                td a / b して a に代入
+        .table-general.scrollable
+            table(border=1)
+                tr
+                    th 演算式
+                    th 処理
+                tr
+                    td a += b
+                    td a + b して a に代入
+                tr
+                    td a -= b
+                    td a - b して a に代入
+                tr
+                    td a *= b
+                    td a * b して a に代入
+                tr
+                    td a /= b
+                    td a / b して a に代入
         br
 
         code.code
@@ -74,8 +74,7 @@
     p.title 単項演算子
     ul
         <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと）
-        // .frame <code>x++</code> = <code>x += 1</code> / <code>x--</code> = <code>x -= 1</code>
-        pre
+        .table-general.scrollable
             table(border=1)
                 tr
                     th 演算式
@@ -96,6 +95,7 @@
                     td --x
                     td xを1減算してから演算（ 前置型 ）
                     td -
+//-
     br
     v-divider
     .prev-next-btn
@@ -114,6 +114,7 @@ export default class Operate extends Vue {}
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 @require '~@/components/stylus-pane/exp-main.styl';
+@require '~@/components/stylus-pane/table.styl';
 
-.operate {}
+#operate {}
 </style>

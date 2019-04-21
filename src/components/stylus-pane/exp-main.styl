@@ -1,33 +1,31 @@
+// all
 *
     line-height: 1.8
 
+// section title
 .title
     border-left: solid 7px orange
     padding .5rem
-    margin: .2rem 0
+    margin: .3rem 0
     font-weight: bold
 
     // background: #B9F6CA == rgb(185, 246, 202)
-    background: -moz-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0));
-    background: -webkit-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0));
-    background: linear-gradient(to bottom, #B9F6CA 40%, rgba(185, 246, 202, 0));
+    background: -moz-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0))
+    background: -webkit-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0))
+    background: linear-gradient(to bottom, #B9F6CA 40%, rgba(185, 246, 202, 0))
 
     code
         font-size: 1rem
     li
         margin: .2rem 0
 
+// list content change
 ul > li
     list-style: none
 ul > li::before
     content: '★ '
 
-
-/** ul要素後に改行を入れる */
-// ul::after
-    // content: '\A'
-    // white-space: pre
-
+// like command prompt
 .prompt
     margin: 0 .5rem
     padding: 0 .5em
@@ -35,28 +33,35 @@ ul > li::before
     background: black
     color: white
 
+// source code
 code
     margin: 0 .15rem
     overflow-x: auto
-
 .code
     width: 100%
     background: #263238
     color: white
     padding: 5px 20px
-    font-size: 1.1rem
+    font-size: 1rem
 
+.details-center
+    margin: auto
+    width: fit-content
+
+// keyword marker / important word
 .keyword
     padding: .1rem .5rem
     background: #82B1FF
     border-radius: 20px
 
+// summary frame
 .frame
     margin: .2rem 0
     padding: .3rem
     border: solid 2px #FFCDD2
     width: fit-content
 
+// important
 .lookat
     // background: #F48FB1
     background: #ffa8c5
@@ -64,6 +69,7 @@ code
     padding: .15rem .5rem
     margin: 0 .1rem
 
+// result of source code
 .exec-result
     width: 100%
     background: #B39DDB
@@ -78,47 +84,40 @@ code
     padding: .15rem .5rem
     margin: 1rem
 
+// marker of caption
 ol > li
-    background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%);
-    background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%);
     background: linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+    background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+    background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
     width: fit-content
     margin: .2rem 0
 
+// marker of caption
+.marker
+    background: linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+    background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+    background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+    width: fit-content
+    margin: .2rem 0
 
-table
-    margin: auto
-    border-collapse: collapse
-    font-weight: bold
-    border: solid 2px black
-    th
-        padding .3rem 1rem
-        color: white
-        background: #00ACC1
-        border-bottom: solid 1px black
-    td
-        padding .3rem 1rem
-        background: #EEEEEE
-
-td:nth-of-type(1), td:nth-of-type(3)
-    text-align: center
-    background: #FFD180
-
+// unit title, v-scroll-to_id
 .unit-title
     text-align: center
     font-weight: bold
 
-
+// btn-layout of prev-page, next-page
 .prev-next-btn
     display: flex
     justify-content: space-between
     text-align: center
     margin: auto
 
+// btn-layout of prev-page
 .prev-btn
     text-align: left
     margin: auto
 
+// btn-layout of next-page
 .next-btn
     text-align: right
     margin: auto
@@ -137,6 +136,6 @@ td:nth-of-type(1), td:nth-of-type(3)
     width: 250px
     margin: auto
 
-
+// change to monospace fonts
 code, table, pre, .lookat
-    font-family: monospace, sans-serif
+    font-family: 'Roboto Mono', monospace, sans-serif

@@ -1,9 +1,7 @@
 <template lang='pug'>
-.input-output
-    h1.exp-top 解説ページ
-    br
-    .unit-title#io
-        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 入出力
+#input-output
+    .unit-title
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold 入出力
 
     p.title printf()
     ul
@@ -16,22 +14,23 @@
     p.title エスケープシーケンス（特殊文字）
     ul
         li |￥と \ は環境によって表示が異なるが同意（Macでは必ず \ ）
-        table(border=1)
-            tr
-                th コード
-                th 意味
-            tr
-                td \n
-                td 改行
-            tr
-                td \0
-                td NULL（数字の「0」と同意）（読み方はナル or ヌル）
-            tr
-                td \'
-                td シングルクォーテーション「'」を表示
-            tr
-                td \"
-                td ダブルクォーテーション「"」を表示
+        .table-general.scrollable
+            table(border=1)
+                tr
+                    th コード
+                    th 意味
+                tr
+                    td \n
+                    td 改行
+                tr
+                    td \0
+                    td NULL（数字の「0」と同意）（読み方はナル or ヌル）
+                tr
+                    td \'
+                    td シングルクォーテーション「'」を表示
+                tr
+                    td \"
+                    td ダブルクォーテーション「"」を表示
     br
 
     p.title scanf()
@@ -45,33 +44,34 @@
     p.title 変換指定子
     ul
         li <span class='lookat'>printf</span>や<span class='lookat'>scanf</span>に用いる
-        table(border=1)
-            tr
-                th 変換指定子
-                th 型・意味
-            tr
-                td %d
-                td int - 10進数表示
-            tr
-                td %f
-                td float
-            tr
-                td %lf
-                td double
-            tr
-                td %c
-                td char
-            tr
-                td %s
-                td char[] - 文字列（文字配列）
-            tr
-                td %o
-                td int - 8進数表示
-            tr
-                td %x
-                td int - 16進数表示
+        .table-general.scrollable
+            table(border=1)
+                tr
+                    th 変換指定子
+                    th 型・意味
+                tr
+                    td %d
+                    td int - 10進数表示
+                tr
+                    td %f
+                    td float
+                tr
+                    td %lf
+                    td double
+                tr
+                    td %c
+                    td char
+                tr
+                    td %s
+                    td char[] - 文字列（文字配列）
+                tr
+                    td %o
+                    td int - 8進数表示
+                tr
+                    td %x
+                    td int - 16進数表示
         li それぞれ様々なオプションがある（各オプションについては追記予定。詳しくは「変換指定子 オプション」で検索）
-
+//-
     br
     v-divider
     .prev-next-btn
@@ -91,6 +91,7 @@ export default class InputOutput extends Vue {}
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 @require '~@/components/stylus-pane/exp-main.styl';
+@require '~@/components/stylus-pane/table.styl';
 
-.input-output {}
+#input-output {}
 </style>

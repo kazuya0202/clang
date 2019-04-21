@@ -1,0 +1,49 @@
+// can scroll when overflow
+.scrollable
+    overflow: auto
+    white-space: nowrap
+    margin: 0 2rem
+    padding: .3rem 0
+
+.scrollable::before
+    content: '\A'
+    white-space: pre
+
+// when table is array
+.table-array
+    table
+        margin: auto
+        border-collapse: collapse
+        font-weight: bold
+        border: solid 2px black
+        text-align: center
+        th
+            padding .3rem 1rem
+            background: #E3F2FD
+            border-bottom: solid 1px black
+        td
+            padding .3rem 1rem
+            background: #EEEEEE
+
+        .bg
+            background: #E1BEE7
+
+// when table is not array
+.table-general
+    table
+        margin: auto
+        border-collapse: collapse
+        font-weight: bold
+        border: solid 2px black
+        th
+            padding .3rem 1rem
+            color: white
+            background: #00ACC1
+            border-bottom: solid 1px black
+        td
+            padding .3rem 1rem
+            background: #EEEEEE
+
+    td:nth-of-type(1), td:nth-of-type(3)
+        text-align: center
+        background: #FFD180

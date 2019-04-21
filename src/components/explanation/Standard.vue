@@ -1,9 +1,7 @@
 <template lang='pug'>
-.standard
-    h1.exp-top 解説ページ
-    br
-    .unit-title#standard
-        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 C言語のきほん
+#standard
+    .unit-title
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold C言語のきほん
 
     p.title #include &lt;stdio.h&gt;
     ul
@@ -54,8 +52,8 @@
             | <span class='lookat'>return false;</span>や<span class='lookat'>return abcde;</span>などの<span class='lookat'>bool</span>型、<span class='lookat'>char[]</span>型
             | を返すことも可能であるということは頭に入れておくべき
             | （<span class='lookat'>return 0;</span>だけが<span class='lookat'>return</span>と固定観念を持ってはダメ）
+//-
     br
-
     v-divider
     .next-btn
         v-btn(:to='{ name: "type-exp"}' v-scroll-to='"body"' color='primary' flat) next. 変数と型 >>
@@ -74,6 +72,7 @@ export default class Standard extends Vue {}
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 @require '~@/components/stylus-pane/exp-main.styl';
+@require '~@/components/stylus-pane/table.styl';
 
-.standard {}
+#standard {}
 </style>

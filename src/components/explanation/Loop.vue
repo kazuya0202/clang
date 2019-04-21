@@ -1,9 +1,7 @@
 <template lang='pug'>
-.loop
-    h1.exp-top 解説ページ
-    br
-    .unit-title#loop
-        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 繰り返し
+#loop
+    .unit-title
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold 繰り返し
 
     p.title 繰り返し処理
     ul
@@ -12,48 +10,50 @@
             | &emsp;&emsp;また、<span class='lookat'>{ }</span>内の処理が1文の場合、<span class='lookat'>{ }</span>省略可能
         br
         li 主な使い分けは以下の通り
-    table(border=1)
-        tr
-            th 構文
-            th 使い分け
-        tr
-            td for
-            td 繰り返す回数が[n回]などとはっきりと分かっている場合
-        tr
-            td while
-            td 繰り返す回数がはっきりとわからない場合
+
+        .table-general.scrollalbe
+            table(border=1)
+                tr
+                    th 構文
+                    th 使い分け
+                tr
+                    td for
+                    td 繰り返す回数が[n回]などとはっきりと分かっている場合
+                tr
+                    td while
+                    td 繰り返す回数がはっきりとわからない場合
 
     br
-    details(style='background: #C5E1A5; padding: .1rem .2rem')
+    details.px-3.py-1.light-green.lighten-3
         summary 繰り返しの考え方
         v-divider
-        details(style='background: #81D4FA; padding: .2rem .5rem')
+        details.px-3.py-1.blue.lighten-3
             summary sample code
-            p.lookat(style='width: fit-content; margin: auto; background: #D1C4E9') <span class='lookat'>while</span>と<span class='lookat'>for</span>で同じことをするコード
-            code.code(style='width: fit-content')
-                | // while
-                | int i;    // 宣言
-                | i = 0;    // 初期化
-                | while (i < 10) {  // <span class='lookat' style='color: black'>条件式</span>
-                |     printf("%d回目\n", i + 1);    // 処理
-                |     i++;  // 増減式
-                | }
-                |
-                | // for
-                | int i;    // 宣言
-                | for (i = 0; i < 10; i++) {    // <span class='lookat' style='color: black'>初期化、条件式、増減式</span>
-                |     printf("%d回目\n", i + 1);    // 処理
-                | }
-            | <br><br>
-            p.lookat(style='width: fit-content; margin: auto; background: #D1C4E9') それぞれ以下のような結果が得られる
-            br
-            .exec-result(style='width: 50%; margin: auto')
-                | 1回目<br>2回目<br>3回目<br>4回目<br>5回目<br>6回目<br>7回目<br>8回目<br>9回目<br>10回目
+            .details-center
+                .keyword(style='width: fit-content; background: #FFE082') <span class='lookat'>while</span>と<span class='lookat'>for</span>で同じことをするコード
+                code.code(style='width: fit-content')
+                    | // while
+                    | int i;    // 宣言
+                    | i = 0;    // <span class='lookat' style='color: black'>初期化</span>
+                    | while (i < 10) {  // <span class='lookat' style='color: black'>条件式</span>
+                    |     printf("%d回目\n", i + 1);    // 処理
+                    |     i++;  // <span class='lookat' style='color: black'>増減式</span>
+                    | }
+                    |
+                    | // for
+                    | int i;    // 宣言
+                    | for (i = 0; i < 10; i++) {    // <span class='lookat' style='color: black'>初期化、条件式、増減式</span>
+                    |     printf("%d回目\n", i + 1);    // 処理
+                    | }
+                | <br><br>
+                .keyword(style='width: fit-content; background: #FFE082') それぞれ以下のような結果が得られる
+                .exec-result
+                    | 1回目<br>2回目<br>3回目<br>4回目<br>5回目<br>6回目<br>7回目<br>8回目<br>9回目<br>10回目
 
             | <br>
         v-divider
         br
-        p.lookat(style='width: fit-content; margin: auto') 10回処理を繰り返すプログラムの考え方
+        p.keyword(style='width: fit-content; margin: auto; background: #FFE082') 10回処理を繰り返すプログラムの考え方
         ol(style='background: #FFCCBC;')
             li 変数<span class='lookat'>i</span>を宣言
             v-divider
@@ -98,6 +98,22 @@
             |     // 処理
             | }
 
+    p.title 多重ループ（二重ループ）
+    ul
+        li 簡単に言うと、繰り返しの中でさらに繰り返し文を書くこと
+        .caption.text-xs-center 例：九九表
+        code.code
+            | int i, j;
+            | for (i = 0; i <= 9; i++) {
+            |     for (j = 0; j <= 9; j++)
+            |         printf("%3d", i*j);
+            |     printf("\n");
+            | }
+        li 仕組みについては追記予定(?)
+
+
+
+//-
     br
     v-divider
     .prev-next-btn
@@ -115,6 +131,7 @@ export default class Loop extends Vue {}
 <style lang='stylus' scoped>
 @require '~@/assets/styles/entry/_variable.styl';
 @require '~@/components/stylus-pane/exp-main.styl';
+@require '~@/components/stylus-pane/table.styl';
 
-.loop {}
+#loop {}
 </style>
