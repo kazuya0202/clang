@@ -13,7 +13,7 @@
 
     p.title エスケープシーケンス（特殊文字）
     ul
-        li |￥と \ は環境によって表示が異なるが同意（Macでは必ず \ ）
+        li ￥と \ は環境によって表示が異なるが同意（Macでは必ず \ ）
         .table-general.scrollable
             table(border=1)
                 tr
@@ -24,7 +24,7 @@
                     td 改行
                 tr
                     td \0
-                    td NULL（数字の「0」と同意）（読み方はナル or ヌル）
+                    td NULL（10進数の「0」と同意）読み方は「ナル / ヌル」
                 tr
                     td \'
                     td シングルクォーテーション「'」を表示
@@ -38,39 +38,50 @@
         li 標準入力関数（読み方は「スキャンエフ」）
         li 主な形は<span class='lookat'>scanf("%d", &x);</span>
         | &emsp;&emsp;この場合、コンソールが入力待ち状態になり、入力することができる
+        li <span class='lookat'>char[]</span>型以外は<span class='lookat'>&</span>が必要
         li <span class='lookat'>%d</span>については次項に記載
     br
 
     p.title 変換指定子
     ul
-        li <span class='lookat'>printf</span>や<span class='lookat'>scanf</span>に用いる
+        li <span class='lookat'>printf</span>や<span class='lookat'>scanf</span>を使うときに用いる
+        li 型によって違う
+        li <span class='marker'>%○</span>の形
         .table-general.scrollable
             table(border=1)
                 tr
                     th 変換指定子
                     th 型・意味
+                    th 英語
+                tr
+                    td %o
+                    td int - 8進数
+                    td octal
                 tr
                     td %d
-                    td int - 10進数表示
+                    td int - 10進数
+                    td decimal
+                tr
+                    td %x
+                    td int - 16進数
+                    td hexadecimal
                 tr
                     td %f
+                    td float
                     td float
                 tr
                     td %lf
                     td double
+                    td long float
                 tr
                     td %c
                     td char
+                    td character
                 tr
                     td %s
                     td char[] - 文字列（文字配列）
-                tr
-                    td %o
-                    td int - 8進数表示
-                tr
-                    td %x
-                    td int - 16進数表示
-        li それぞれ様々なオプションがある（各オプションについては追記予定。詳しくは「変換指定子 オプション」で検索）
+                    td string
+        li それぞれ様々なオプションがあるが各オプションについては追記予定（詳しくは「変換指定子 オプション」で検索）
 //-
     br
     v-divider

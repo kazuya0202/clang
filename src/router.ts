@@ -5,13 +5,13 @@ Vue.use(Router);
 
 export default new Router({
     routes: [
-        {
+        {   // Home
             path: '/', name: 'Home',
             component: () => import('@/views/Home.vue'),
         },
 
 
-        {
+        {   // Explanation
             path: '/exp1', name: 'exp-frame1',
             component: () => import(`@/views/pages/ExpFrame1.vue`),
         },
@@ -30,18 +30,9 @@ export default new Router({
 
 
 
-        {
-            path: `/ques1`,
-            name: 'ques-frame1',
+        {   // Question
+            path: `/ques1`, name: 'ques-frame1',
             component: () => import(`@/views/pages/QuesFrame1.vue`),
         },
-
-        // questions
-        // {
-        //     // 変数と型
-        //     path: `${ques}/入出力`,
-        //     name: 'io-ques',
-        //     component: () => import(`@/components/${path.ques}/InputOutput-ques.vue`),
-        // },
     ],
 });

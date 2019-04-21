@@ -18,45 +18,26 @@ v-layout#Home(fill-height column)
 
         br
         .unit-title
-            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 Home
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 ほーむ
 
         v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold.my-3
-            | 本サイトに書かれていることは<br>筆者の感じたように書いているので<br>厳密な意味では異なる場合があります
-        v-card(class='text-sm-center' color='#B3E5FC' style='width: 65%; margin: auto' flat).pa-2.font-weight-bold
             | スマートフォンは横画面がおすすめ
-        v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold.my-3
-            | ページ遷移は左上のボタンから
+        v-card(class='text-sm-center' color='#B3E5FC' style='width: 65%; margin: auto' flat).pa-2.font-weight-bold
+            | ページ遷移は左上のボタン or 下のボタンから
+
+        .to-btn.my-3
+            v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame1" }' color='success' flat).mx-2.font-weight-bold 解説ページ >>
+            v-btn(v-scroll-to='"body"' :to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold 練習問題ページ >>
 
         v-divider
         .unit-title
-            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 筆者のコメント
-        v-card(class='text-sm-center' color='#B3E5FC' style='width: 65%; margin: auto' flat).pa-2.font-weight-bold
-            | 途中で矢が折れてダメになったのでHOMEは箇条書き
-        v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold.my-3
-            | Javaも書くかもしれないけどよくわかんない <br>
-            | 需要しだい
-        v-card(class='text-sm-center' color='#B3E5FC' style='width: 65%; margin: auto' flat).pa-2.font-weight-bold
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 こめんと
+        v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold
+            | <span class='marker'>C言語をやったことがあるけどよくわからない人</span>向けのため、理解を深める程度に考えてください
+        v-card(class='text-sm-center' color='#B3E5FC' style='width: 65%; margin: auto' flat).pa-2.font-weight-bold.my-3
+            | 「C言語教えて！」の言葉を断れない人！そのことなら"このサイトに書いてあるよ"で終わらせてしまえ！！という思いで書いてます
+        v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold
             | 追記はある程度全体が完成したら書き始める予定
-
-        span(style='display: block')
-            v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame1" }' color='primary' flat) next. Exp-Frame1 >>
-            br
-            v-btn(v-scroll-to='"body"' :to='{ name: "ques-frame1" }' color='primary' flat) next. Ques-frame1 >>
-
-        //- v-list
-            v-list-group(v-for='item in $store.state.comment' :key='item.title'
-                        v-model='item.active' :prepend-icon='item.action' no-action)
-                template(v-slot:activator)
-                    v-list-tile(color='green' dark)
-                        v-list-tile-content
-                            v-list-tile-title.font-weight-black {{ item.title }}ページ
-
-                v-list-tile(v-for='subItem in item.items' :key='subItem.title'
-                            :to='{name: subItem.name}' v-scroll-to='"body"')
-                    v-list-tile-action
-                        v-icon mdi-rhombus-medium
-                    v-list-tile-content
-                        v-list-tile-title {{ subItem.title }}
 
 
 </template>
@@ -133,5 +114,20 @@ html
         list-style: none
     ul > li::before
         content: '★ '
+
+    .marker
+        background: linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+        background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+        background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+        width: fit-content
+        margin: .2rem 0
+
+    .to-btn
+        display: flex
+        justify-content: center
+        margin: auto
+        width: 100%
+        background: #FFE0B2
+        border-radius: 20px
 
 </style>

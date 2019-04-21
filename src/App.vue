@@ -36,6 +36,8 @@ v-app#app
             v-btn(v-scroll-to='"body"' color='pink' dark bottom right fixed fab small outline)
                 v-icon mdi-chevron-up
 
+
+
     //- 左上のでもできるから今はほっとく（あとでやるかも
     //- scroll to each element
     //- v-menu(v-model='menuFab' :close-on-content-click='false' :nudge-width='250')

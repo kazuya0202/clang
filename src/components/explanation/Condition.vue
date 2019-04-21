@@ -13,7 +13,7 @@
             | } else {          // 条件式が<span class='lookat' style='color: black'>false (偽)</span>なら
             |     // 処理2;
             | }
-        li [処理1], [処理2]それぞれの処理が1文なら<span class='lookat'>{ }</span>を省略可能
+        li [ 処理1 ], [ 処理2 ]それぞれ処理が1文なら<span class='lookat'>{ }</span>を省略可能
         li また、<span class='lookat'>else</span>も使わない場合は省略する
     br
 
@@ -21,6 +21,7 @@
     ul
         li 条件式には、<span class='keyword'>比較演算子</span>と<span class='keyword'>論理演算子</span>が使われる
         li 条件式の結果は<span class='lookat'>true (真)</span>、または<span class='lookat'>false (偽)</span>が返される
+        li <span class='marker'>bool</span>型の変数に条件式の結果を記憶することができる
     br
 
     p.title 比較演算子
@@ -51,21 +52,27 @@
     br
 
     p.title 論理演算子
-    var A = 0 (false), B = 1 (true) とする
-    .table-general.scrollable
-        table(border=1)
-            tr
-                th 演算子
-                th 意味
-            tr
-                td AND (&&)
-                td 論理和 （A && B → 0）
-            tr
-                td OR (||)
-                td 論理積 （A || B → 1）
-            tr
-                td NOT (!)
-                td 論理否定 （!A → 1）
+    ul
+        li <span class='lookat'>&&, ||</span>は左側の式がまず評価され、右側の式が評価される
+            | <br>&emsp;&emsp;そのため、<span class='lookat'>&&</span>は左側の式が<span class='marker'>false</span>であれば右側の式を評価しない
+        .table-general.scrollable
+            table(border=1)
+                tr
+                    th 演算子
+                    th 意味
+                    th 例
+                tr
+                    td &&
+                    td 論理積 (AND)
+                    td (true && false) → false
+                tr
+                    td ||
+                    td 論理和 (OR)
+                    td (true || false) → true
+                tr
+                    td !
+                    td 論理否定 (NOT)
+                    td (!true) → false
     br
 
     p.title 比較演算子と論理演算子の組み合わせ
@@ -75,11 +82,8 @@
             | // n が0より小さい、または10以上なら
             | if (n < 0 || n >= 10) ...
             |
-            | // c がアルファベットの小文字なら
-            | if (c >= 'a' && c <= 'z') ...
-        | <br><br>
-        li アルファベットが比較演算子で判断できるのは、ASCIIコードと呼ばれるもので連続的に管理されているから <br>
-            | （ ASCIIコードについては topics として追記予定 ）
+            | // n が65以上、かつ80以下なら
+            | if (n >= 65 && n <= 80) ...
 //-
     br
     v-divider

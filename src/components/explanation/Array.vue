@@ -8,33 +8,37 @@
             | <br>&emsp;&emsp;（学生のテスト点など）
         li 配列は<span class='lookat'>[0] ～ [要素数-1]</span>で構成される
 
-    .table-array.scrollalbe
-        table(border=1)
-            caption.caption ● 配列の構造
-            tr
-                th(rowspan=2).bg array
-                th [0]
-                th [1]
-                th [2]
-                th [3]
-                th [4]
-            tr
-                td 要素1
-                td 要素2
-                td 要素3
-                td 要素4
-                td 要素5
+        .table-array.scrollalbe
+            table(border=1)
+                caption.caption ● 配列の構造
+                tr
+                    th(rowspan=2).bg array
+                    th [0]
+                    th [1]
+                    th [2]
+                    th [3]
+                    th [4]
+                tr
+                    td 要素1
+                    td 要素2
+                    td 要素3
+                    td 要素4
+                    td 要素5
+    br
 
     p.title 配列の宣言 / 配列のアクセス
     ul
         li 配列の使い方は以下の通り
         code.code
-            | <型> 変数名[要素数];
+            | < 型 > 変数名[要素数];
+            |
             | // 例
             | int score[3];
 
         li 上の例のように[3]と宣言すると3個の箱（ [0]～[2] ）が生成される
+        br
         li 配列の要素には<span class='keyword'>添え字 (インデックス)</span>でアクセスする
+        li [0] ～ [2] 以外の存在しない添え字にアクセスすることはできない
 
         code.code
             | // 代入
@@ -46,9 +50,8 @@
             |
             | score[3] = 73;   // エラー
             | scanf("%d", &score);   // エラー
-        li [0] ～ [2] 以外の添え字にアクセスすることはできない
 
-        br
+        | <br><br>
         li 宣言時に<span class='lookat'>{ }</span>を用いて初期化することもできる
             | <br>&emsp;&emsp;また、初期化するときは要素数を省略しても自動的に要素が生成される
         code.code
@@ -56,33 +59,32 @@
             |
             | // 省略時
             | int score[] = { 85, 65, 91 };
+    br
 
-        p.title 配列と繰り返し
-        ul
-            li 配列は添え字が<span class='lookat'> [0] ～ [要素数-1] </span>と連続しているため、
-                | 繰り返し文を用いて走査できる
-            li 主に全要素に対して処理を行う場合は以下のようにする (whileは省略)
+    p.title 配列と繰り返し
+    ul
+        li 配列は添え字が<span class='lookat'> [0] ～ [要素数-1] </span>と連続しているため、
+            | 繰り返し文を用いて走査できる
+        li 主に全要素に対して処理を行う場合は以下のようにする (whileは省略)
+        code.code
+            | for (i = 0; i < 要素数; i++) {
+            |     // 処理   (変数名[i]でアクセス)
+            | }
+    br
+    details.px-3.py-1.light-green.lighten-3
+        summary 例：配列の要素の合計を求める
+        .details-center
             code.code
-                | for (i = 0; i < <span class='lookat' style='color: black'>要素数</span>; i++) {
-                |     // 処理   <span class='lookat' style='color: black'>変数名[i] </span>でアクセス
-                | }
-
-        details.px-3.py-1.light-green.lighten-3
-            summary 例：配列の要素の合計を求める
-            .details-center
-                code.code
-                    | int i;
-                    | int data[] = { 88, 92, 56, 67, 73 };
-                    | int sum = 0;   // 合計
-                    |
-                    | for (i = 0; i < 5; i++)
-                    |     sum += data[i]
-                    |
-                    | printf("合計 = %d", sum);
-                .exec-result
-                    | 合計 = 387
-
-
+                | int i;
+                | int data[] = { 88, 92, 56, 67, 73 };
+                | int sum = 0;   // 合計
+                |
+                | for (i = 0; i < 5; i++)
+                |     sum += data[i]   // 加算
+                |
+                | printf("合計 = %d", sum);
+            .exec-result
+                | 合計 = 387
 
 </template>
 
@@ -90,7 +92,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class ArrayExp extends Vue {}
+export default class Array extends Vue {}
 </script>
 
 <style lang='stylus' scoped>

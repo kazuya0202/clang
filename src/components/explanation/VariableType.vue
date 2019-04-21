@@ -5,13 +5,14 @@
 
     p.title 変数
     ul
-        li データ値を記憶できる領域（箱）のこと
+        li <span class='marker'>データ値を記憶できる領域（箱）</span>のこと
         li 宣言時の型に応じて記憶できるデータ値は異なる
         li 変数名の先頭に数字を使うことはできない
     br
 
     p.title 型
     ul
+        li 変数が記憶できるデータ値を決めるもの
         li 浮動小数点型はコンピュータの特性上誤差が生じることがある
         .table-general.scrollable
             table(border=1)
@@ -31,6 +32,9 @@
                     td char
                     td 文字型
                 tr
+                    td char[]
+                    td 文字列（文字の配列）
+                tr
                     td bool
                     td 論理型（<span class='lookat'>true</span> / <span class='lookat'>false</span>）
     br
@@ -40,9 +44,9 @@
         li 関数の返り値である<span class='lookat'>return</span>は、<span class='lookat'>型</span>によって変わる
         li 主な書き方は以下の通り（ 下の表と組み合わせて ）
         code.code
-            | &lt;型&gt; 関数名() {
+            | < 型 > 関数名() {
             |     ...
-            |     &lt;return文&gt;
+            |     < return文 >
             | }
         br
         .table-general.scrollable
@@ -50,27 +54,35 @@
                 tr
                     th 型
                     th return文
+                    th 例
                 tr
                     td void
+                    td return;
                     td return;
                 tr
                     td int
                     td return <span class='lookat'>整数</span>;
+                    td return -1;
                 tr
                     td float
                     td return <span class='lookat'>実数</span>;
+                    td return 0.1;
                 tr
                     td double
                     td return <span class='lookat'>実数</span>;
+                    td return 0.1;
                 tr
                     td char
                     td return <span class='lookat'>文字</span>;
+                    td return 'a';
                 tr
                     td char[]
                     td return <span class='lookat'>文字列</span>;
+                    td return "xyz";
                 tr
                     td bool
                     td return <span class='lookat'>真偽値</span>;
+                    td return false;
     br
 
     p.title 変数の宣言 / 初期化
@@ -81,12 +93,12 @@
 
         li <span class='keyword'>初期化</span>：変数宣言時に初期値を設定すること（代入演算子を用いる）
         li <span class='lookat'>=</span>：代入演算子
-            | <br>数学の<span class='lookat'>=</span>（等しい）とは異なり、右辺のデータを左辺に<span class='lookat'>代入する</span>という意味
+        li 数学の<span class='lookat'>=</span>（等しい）とは異なり、右辺のデータを左辺に<span class='marker'>代入する</span>という意味
         code.code int fuga = 100;
         | <br><br>
 
         li <span class='lookat'>&lt;型&gt;</span>の前に<span class='lookat'>const</span>をつけることで<span class='keyword'>定数</span>（変更不可能な変数）を宣言できる
-            | <br> また、定数を宣言するときは初期値を必ず設定する
+            | <br>&emsp;&emsp;また、定数を宣言するときは初期値を必ず設定する
         code.code const float PI = 3.141592653;
     br
 

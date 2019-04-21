@@ -43,7 +43,7 @@
     p.title 複合代入演算子
     ul
         li 算術演算と代入を同時に行う場合の省略記法
-            | <br>（ただし、左辺と右辺に同じ変数がある場合のみ）
+            | <br>（ただし、<span class='marker'>左辺と右辺に同じ変数がある場合のみ</span>）
         .table-general.scrollable
             table(border=1)
                 tr

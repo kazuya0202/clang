@@ -8,14 +8,14 @@
         li 文字通り、文字を扱う型のこと
         li 文字は、<span class='keyword'>アスキー(ASCII)コード</span>で<span class='marker'>数値と文字を関連付けて</span>管理されている
 
-        .caption &emsp;&emsp;文字型の使い方
+        li 文字型の使い方は以下の通り
         code.code
             | char c;
             | char c2 = 'a';
 
         | <br><br>
         li <span class='lookat'>char</span>型に代入できる値は、
-            | <span class='marker'>10進数の数値</span>または<span class='marker'>シングルクォート( " )で囲まれた1文字</span>
+            | <span class='marker'>10進数の数値</span>または<span class='marker'>シングルクォート(')で囲まれた1文字</span>
         li 文字の表示 / 入力には<span class='lookat'>%c</span>を用いる
 
         code.code
@@ -39,9 +39,10 @@
 
     p.title 大文字 ⇄ 小文字
     ul
-        li アスキーコードでは、<span class='lookat'>大文字(A~Z) < 小文字(a~z)</span>である
-        li アルファベットはそれぞれ連続しているため<span class='lookat'>小文字－大文字</span>分の数字を増やすことで「大文字 → 小文字」
-            | 減らすことで「小文字 → 大文字」に変換できる（ただし、共通の文字 (a:A / z:Z) である必要がある）
+        li アスキーコードでは、アルファベットはそれぞれ連続していて、<span class='lookat'>大文字(A~Z) < 小文字(a~z)</span>である
+        li <span class='lookat'>小文字－大文字</span>分の数字を
+            | 増やすことで「大文字 → 小文字」減らすことで「小文字 → 大文字」
+            | に変換できる（ただし、共通の文字 (a:A / z:Z) である必要がある）
         .table-general.scrollable
             table(border=1)
                 tr
@@ -73,13 +74,13 @@
             | char name[8] = "abcde";
             |
             | scanf("%s", str);
-            | scanf("%s", &str);   // ×
+            | scanf("%s", &str);   // エラー
 
-        li 宣言時に<span class='marker'>ダブルクォート( " )</span>で囲むと初期化できる
+        li 宣言時に<span class='marker'>ダブルクォート(")</span>で囲むと初期化できる
         li 表示 / 入力には、<span class='lookat'>%s</span>を用いる
             | <br>&emsp;&emsp;また、添え字はつけない（つけると1文字になってしまうから）
         li <span class='lookat'>scanf()</span>の時、変数に<span class='lookat'>&</span>はつけない
-            | <br>&emsp;&emsp;なぜ必要ないのかは topics として追記予定
+            | <br>&emsp;&emsp;（なぜ必要ないのかは topics として追記予定）
 
         .table-array.scrollable
             table(border=1)
@@ -105,14 +106,14 @@
                     td '\0'
         br
 
-        li 初期化した場所以外は<span class='lookat'>\0 (NULL)</span>が挿入される
+        li 初期化した場所以外は<span class='lookat'>'\0'(NULL)</span>が挿入される
         li 文字の配列の最後は末尾であることを知らせる<span class='lookat'>'\0'</span>が必要
     br
 
     p.title 文字の配列と繰り返し
     ul
         li 配列と同じように繰り返しを使って、すべての要素に変更を加えることができる
-        li ただしint型などとは違い、文字の配列の場合は要素数に余裕を持つことが多いため、要素数-1まで繰り返すと値のない要素('\0')なども変更してしまう
+        li ただし、<span class='marker'>int型</span>などとは違い、文字の配列の場合は要素数に余裕を持つことが多いため、要素数-1まで繰り返すと値のない要素('\0')なども変更してしまう
         br
         li そこで文字の配列では末尾の<span class='lookat'>'\0'</span>まで、すなわち<span class='lookat'>'\0'でない間</span>繰り返す
 
@@ -121,7 +122,7 @@
             | int i;
             | char str[10] = "Abc";
             |
-            | '\0'でない間繰り返す
+            | // '\0'でない間繰り返す
             | for (i = 0; str[i] != '\0'; i++) {
             |     // 小文字なら
             |     if (str[i] >= 'a' && str[i] <= 'z')

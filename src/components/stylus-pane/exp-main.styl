@@ -10,8 +10,8 @@
     font-weight: bold
 
     // background: #B9F6CA == rgb(185, 246, 202)
-    background: -moz-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0))
-    background: -webkit-linear-gradient(top, #B9F6CA 40%, rgba(185, 246, 202, 0))
+    background: -moz-linear-gradient(to bottom, #B9F6CA 40%, rgba(185, 246, 202, 0))
+    background: -webkit-linear-gradient(to bottom, #B9F6CA 40%, rgba(185, 246, 202, 0))
     background: linear-gradient(to bottom, #B9F6CA 40%, rgba(185, 246, 202, 0))
 
     code
@@ -71,9 +71,11 @@ code
 
 // result of source code
 .exec-result
-    width: 100%
+    width: fit-content
+    min-width: 50%
     background: #B39DDB
-    margin: .5rem 0
+    // margin: .5rem 0
+    margin: auto
     padding: 0 1rem
     border-radius: 10px
 
@@ -85,18 +87,10 @@ code
     margin: 1rem
 
 // marker of caption
-ol > li
-    background: linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
-    background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
-    background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
-    width: fit-content
-    margin: .2rem 0
-
-// marker of caption
 .marker
-    background: linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
-    background: -moz-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
-    background: -webkit-linear-gradient(rgba(255, 255, 102, 0) 50%, #ffff66 60%)
+    background: linear-gradient(to bottom, rgba(255, 255, 102, 0) 60%, #ffff66)
+    background: -moz-linear-gradient(to bottom, rgba(255, 255, 102, 0) 60%, #ffff66)
+    background: -webkit-linear-gradient(to bottom, rgba(255, 255, 102, 0) 60%, #ffff66)
     width: fit-content
     margin: .2rem 0
 
@@ -137,5 +131,5 @@ ol > li
     margin: auto
 
 // change to monospace fonts
-code, table, pre, .lookat
+code, table, pre, .lookat, .marker
     font-family: 'Roboto Mono', monospace, sans-serif
