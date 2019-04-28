@@ -29,36 +29,36 @@
     p.title 配列の宣言 / 配列のアクセス
     ul
         li 配列の使い方は以下の通り
-        code.code
-            | < 型 > 変数名[要素数];
-            |
-            | // 例
-            | int score[3];
+        highlight-code(lang='cpp').
+            &lt;type&gt; 変数名[ 要素数 ];
+
+            &nbsp;// 例
+            &nbsp;int score[3];
 
         li 上の例のように[3]と宣言すると3個の箱（ [0]～[2] ）が生成される
         br
         li 配列の要素には<span class='keyword'>添え字 (インデックス)</span>でアクセスする
         li [0] ～ [2] 以外の存在しない添え字にアクセスすることはできない
 
-        code.code
-            | // 代入
-            | score[0] = 85;
-            | score[1] = 68;
-            |
-            | // 入力
-            | scanf("%d", &score[2]);
-            |
-            | score[3] = 73;   // エラー
-            | scanf("%d", &score);   // エラー
+        highlight-code(lang='cpp').
+            // 代入
+            &nbsp;score[0] = 85;
+            &nbsp;score[1] = 68;
 
-        | <br><br>
+            &nbsp;// 入力
+            &nbsp;scanf("%d", &score[2]);
+
+            &nbsp;score[3] = 73;   // エラー
+            &nbsp;scanf("%d", &score);   // エラー
+
+        br
         li 宣言時に<span class='lookat'>{ }</span>を用いて初期化することもできる
             | <br>&emsp;&emsp;また、初期化するときは要素数を省略しても自動的に要素が生成される
-        code.code
-            | int score[3] = { 85, 65, 91 };
-            |
-            | // 省略時
-            | int score[] = { 85, 65, 91 };
+        highlight-code(lang='cpp').
+            int score[3] = { 85, 65, 91 };
+
+            &nbsp;// 省略時
+            &nbsp;int score[] = { 85, 65, 91 };
     br
 
     p.title 配列と繰り返し
@@ -66,23 +66,23 @@
         li 配列は添え字が<span class='lookat'> [0] ～ [要素数-1] </span>と連続しているため、
             | 繰り返し文を用いて走査できる
         li 主に全要素に対して処理を行う場合は以下のようにする (whileは省略)
-        code.code
-            | for (i = 0; i < 要素数; i++) {
-            |     // 処理   (変数名[i]でアクセス)
-            | }
+        highlight-code(lang='cpp').
+            for (i = 0; i < 要素数; i++) {
+            &nbsp;    // 処理   (変数名[i]でアクセス)
+            &nbsp;}
     br
     details.px-3.py-1.light-green.lighten-3
         summary 例：配列の要素の合計を求める
         .details-center
-            code.code
-                | int i;
-                | int data[] = { 88, 92, 56, 67, 73 };
-                | int sum = 0;   // 合計
-                |
-                | for (i = 0; i < 5; i++)
-                |     sum += data[i]   // 加算
-                |
-                | printf("合計 = %d", sum);
+            highlight-code(lang='cpp').
+                int i;
+                &nbsp;int data[] = { 88, 92, 56, 67, 73 };
+                &nbsp;int sum = 0;   // 合計
+
+                &nbsp;for (i = 0; i < 5; i++)
+                &nbsp;    sum += data[i]   // 加算
+
+                &nbsp;printf("合計 = %d", sum);
             .exec-result
                 | 合計 = 387
 

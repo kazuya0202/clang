@@ -15,6 +15,7 @@
     "@fortawesome/fontawesome-free": "^5.7.2",
     "@mdi/font": "^3.5.95",
     "exif-js": "^2.3.0",
+    "highlight.js": "^9.15.6",
     "instant-vuetify-overlays": "^2.0.5",
     "jstransformer-markdown-it": "^2.1.0",
     "lodash": "^4.17.11",
@@ -22,6 +23,7 @@
     "roboto-fontface": "^0.10.0",
     "vue": "^2.6.8",
     "vue-class-component": "^7.0.1",
+    "vue-highlight.js": "^3.1.0",
     "vue-property-decorator": "^8.0.0",
     "vue-router": "^3.0.2",
     "vue-scrollto": "^2.15.0",
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
+    "@types/highlight.js": "^9.12.3",
     "@types/lodash": "^4.14.122",
     "@types/mocha": "^5.2.6",
     "@vue/cli-plugin-babel": "^3.4.1",

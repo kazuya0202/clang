@@ -9,19 +9,19 @@
         li 文字は、<span class='keyword'>アスキー(ASCII)コード</span>で<span class='marker'>数値と文字を関連付けて</span>管理されている
 
         li 文字型の使い方は以下の通り
-        code.code
-            | char c;
-            | char c2 = 'a';
+        highlight-code(lang='cpp').
+            char c;
+            &nbsp;char c2 = 'a';
 
         | <br><br>
         li <span class='lookat'>char</span>型に代入できる値は、
             | <span class='marker'>10進数の数値</span>または<span class='marker'>シングルクォート(')で囲まれた1文字</span>
         li 文字の表示 / 入力には<span class='lookat'>%c</span>を用いる
 
-        code.code
-            | printf("%c\n", 'a');
-            | printf("%c = %d\n", 'a', 'a');
-            | printf("%c = %d\n", 97, 97);
+        highlight-code(lang='cpp').
+            printf("%c\n", 'a');
+            &nbsp;printf("%c = %d\n", 'a', 'a');
+            &nbsp;printf("%c = %d\n", 97, 97);
         .exec-result
             | a <br>
             | a = 97 <br>
@@ -33,8 +33,8 @@
     details.px-3.py-1.light-green.lighten-3
         summary アスキーコードの表をプロンプトに表示してみよう
         .details-center
-            code.code
-                | // これまた追記予定
+            highlight-code(lang='cpp').
+                // これまた追記予定
     br
 
     p.title 大文字 ⇄ 小文字
@@ -66,15 +66,15 @@
             | （そのため、厳密な意味では文字列〔String〕ではなく文字の配列）
 
         li 宣言 / 初期化は以下の通り
-        code.code
-            | char 変数名[要素数];
-            |
-            | // 例
-            | char str[20];
-            | char name[8] = "abcde";
-            |
-            | scanf("%s", str);
-            | scanf("%s", &str);   // エラー
+        highlight-code(lang='cpp').
+            char 変数名[要素数];
+
+            &nbsp;// 例
+            &nbsp;char str[20];
+            &nbsp;char name[8] = "abcde";
+
+            &nbsp;scanf("%s", str);
+            &nbsp;scanf("%s", &str);   // エラー
 
         li 宣言時に<span class='marker'>ダブルクォート(")</span>で囲むと初期化できる
         li 表示 / 入力には、<span class='lookat'>%s</span>を用いる
@@ -118,17 +118,17 @@
         li そこで文字の配列では末尾の<span class='lookat'>'\0'</span>まで、すなわち<span class='lookat'>'\0'でない間</span>繰り返す
 
         .caption.text-xs-center 例：すべての文字を大文字にする
-        code.code
-            | int i;
-            | char str[10] = "Abc";
-            |
-            | // '\0'でない間繰り返す
-            | for (i = 0; str[i] != '\0'; i++) {
-            |     // 小文字なら
-            |     if (str[i] >= 'a' && str[i] <= 'z')
-            |         str[i] -= 32;
-            | }
-            | printf("%s\n", str);
+        highlight-code(lang='cpp').
+            int i;
+            &nbsp;char str[10] = "Abc";
+
+            &nbsp;// '\0'でない間繰り返す
+            &nbsp;for (i = 0; str[i] != '\0'; i++) {
+            &nbsp;    // 小文字なら
+            &nbsp;    if (str[i] >= 'a' && str[i] <= 'z')
+            &nbsp;        str[i] -= 32;
+            &nbsp;}
+            &nbsp;printf("%s\n", str);
         .exec-result
             | ABC
     br

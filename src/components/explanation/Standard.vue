@@ -37,9 +37,18 @@
         li コメントはコンパイル時に削除される
         br
         li <span class='marker'>1行コメント</span>：<span class='lookat'>//</span>の後がすべてコメントとみなされる（ただし、1行のみ）
-        code.code // 変数の宣言<br>int hoge;
+
+        highlight-code(lang='cpp').
+            // 変数の宣言
+            &nbsp;int hoge;
         li <span class='marker'>複数行コメント</span>：<span class='lookat'>/*</span>と<span class='lookat'>*/</span>で囲まれた部分がコメントとみなされ、複数行書くことができる
-        code.code /*<br>　変数の宣言<br>　max: 最大値を記憶する変数<br>*/<br>int max;
+
+        highlight-code(lang='cpp').
+            /*
+            &nbsp;　変数の宣言
+            &nbsp;　max: 最大値を記憶する変数
+            &nbsp;*/
+            &nbsp;int max;
     br
 
     p.title return
@@ -52,6 +61,7 @@
             | <span class='lookat'>return false;</span>や<span class='lookat'>return abcde;</span>などの<span class='lookat'>bool</span>型、<span class='lookat'>char[]</span>型
             | を返すことも可能であるということは頭に入れておくべき
             | （<span class='lookat'>return 0;</span>だけが<span class='keyword'>return</span>と固定観念を持ってはダメ）
+
 //-
     br
     v-divider
@@ -59,13 +69,13 @@
         v-btn(:to='{ name: "type-exp"}' v-scroll-to='"body"' color='primary' flat) next. 変数と型 >>
 
 
-
 </template>
-
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component
+@Component({
+    components: {},
+})
 export default class Standard extends Vue {}
 </script>
 

@@ -44,14 +44,14 @@
 
             li.marker 繰り返す処理 <br>
             | ここでは、回数を表示する <br>
-            code.code(style='width: fit-content')
-                | printf("%d回目\n", i + 1);
+            highlight-code(lang='cpp').
+                printf("%d回目\n", i + 1);
             v-divider
 
             li.marker 変数の値を更新する
             | 今回はカウントアップしていくため<span class='lookat'>i</span>をインクリメント <br>
-            code.code(style='width: fit-content')
-                | i++;
+            highlight-code(lang='cpp').
+                i++;
             v-divider
 
             li.marker 2.に戻って繰り返す
@@ -65,20 +65,20 @@
             summary sample code
             .details-center
                 .caption.text-xs-center ● whileとforで同じことをするコード
-                code.code(style='width: fit-content')
-                    | // while
-                    | int i;    // 宣言
-                    | i = 0;    // <span class='lookat' style='color: black'>初期化</span>
-                    | while (i < 10) {  // <span class='lookat' style='color: black'>条件式</span>
-                    |     printf("%d回目\n", i + 1);    // 処理
-                    |     i++;  // <span class='lookat' style='color: black'>増減式</span>
-                    | }
-                    |
-                    | // for
-                    | int i;    // 宣言
-                    | for (i = 0; i < 10; i++) {    // <span class='lookat' style='color: black'>初期化、条件式、増減式</span>
-                    |     printf("%d回目\n", i + 1);    // 処理
-                    | }
+                highlight-code(lang='cpp').
+                    // while
+                    &nbsp;int i;    // 宣言
+                    &nbsp;i = 0;    // <span class='lookat' style='color: black'>初期化</span>
+                    &nbsp;while (i < 10) {  // <span class='lookat' style='color: black'>条件式</span>
+                    &nbsp;    printf("%d回目\n", i + 1);    // 処理
+                    &nbsp;    i++;  // <span class='lookat' style='color: black'>増減式</span>
+                    &nbsp;}
+
+                    &nbsp;// for
+                    &nbsp;int i;    // 宣言
+                    &nbsp;for (i = 0; i < 10; i++) {    // <span class='lookat' style='color: black'>初期化、条件式、増減式</span>
+                    &nbsp;    printf("%d回目\n", i + 1);    // 処理
+                    &nbsp;}
                 br
                 .caption.text-xs-center ● それぞれ以下のような結果が得られる
                 .exec-result
@@ -88,10 +88,10 @@
     p.title while
     ul
         li <span class='lookat'>()</span>内に<span class='keyword'>条件式</span>のみを記述する
-        code.code
-            | while ( 条件式 ) {
-            |     // 処理
-            | }
+        highlight-code(lang='cpp').
+            while ( 条件式 ) {
+            &nbsp;    // 処理
+            &nbsp;}
         li <span class='lookat'>while</span>と似た<span class='lookat'>do while</span>は topics として追加予定
     br
 
@@ -99,22 +99,22 @@
     ul
         li <span class='lookat'>()</span>内に<span class='keyword'>初期化</span>、<span class='keyword'>条件式</span>、<span class='keyword'>増減式</span>を<span class='lookat'>;</span>で区切りながら記述する
         li 初期化、条件式、増減式は省略できる（ただし、<span class='lookat'>;</span>は記述する）
-        code.code
-            | for ( 初期化; 条件式; 増減式) {
-            |     // 処理
-            | }
+        highlight-code(lang='cpp').
+            for ( 初期化; 条件式; 増減式) {
+            &nbsp;    // 処理
+            &nbsp;}
 
     p.title 多重ループ（二重ループ）
     ul
         li 簡単に言うと、繰り返しの中でさらに繰り返し文を書くこと
         .caption.text-xs-center 例：九九表
-        code.code
-            | int i, j;
-            | for (i = 0; i <= 9; i++) {
-            |     for (j = 0; j <= 9; j++)
-            |         printf("%3d", i*j);
-            |     printf("\n");
-            | }
+        highlight-code(lang='cpp').
+            int i, j;
+            &nbsp;for (i = 0; i <= 9; i++) {
+            &nbsp;    for (j = 0; j <= 9; j++)
+            &nbsp;        printf("%3d", i*j);
+            &nbsp;    printf("\n");
+            &nbsp;}
         pre.exec-result
             |   1  2  3  4  5  6  7  8  9
             |   2  4  6  8 10 12 14 16 18

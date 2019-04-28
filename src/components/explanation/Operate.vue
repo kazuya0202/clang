@@ -27,15 +27,15 @@
                     td 剰余演算子（ 余りを求める ）
         br
 
-        code.code
-            | printf("%d\n", 10 % 5);
-            | printf("%d\n", 2 + 3 * 5);
+        highlight-code(lang='cpp').
+            printf("%d\n", 10 % 5);
+            &nbsp;printf("%d\n", 2 + 3 * 5);
         .exec-result
             samp 0<br>17
         br
         li プログラムでも数学と同じように<span class='lookat'>( )</span>で数式を囲むと演算順序が優先される
-        code.code
-            | printf("%d\n", (2 + 3) * 5);
+        highlight-code(lang='cpp').
+            printf("%d\n", (2 + 3) * 5);
         .exec-result
             samp 25
     br
@@ -63,12 +63,12 @@
                     td a / b して a に代入
         br
 
-        code.code
-            | // 従来の四則演算と代入
-            | sum = sum + x;
-            |
-            | // 複合代入
-            | sum += x;
+        highlight-code(lang='cpp').
+            // 従来の四則演算と代入
+            &nbsp;sum = sum + x;
+
+            &nbsp;// 複合代入
+            &nbsp;sum += x;
     br
 
     p.title 単項演算子

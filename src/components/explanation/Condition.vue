@@ -7,12 +7,12 @@
     ul
         li <span class='lookat'>if</span>（もしも～なら）を用いる
         li 主な書き方は以下の通り
-        code.code
-            | if ( 条件式 ) {   // 条件式が<span class='lookat' style='color: black'>true (真)</span>なら
-            |     // 処理1;
-            | } else {          // 条件式が<span class='lookat' style='color: black'>false (偽)</span>なら
-            |     // 処理2;
-            | }
+        highlight-code(lang='cpp').
+            if ( 条件式 ) {   // 条件式が<span class='lookat' style='color: black'>true (真)</span>なら
+            &nbsp;    // 処理1;
+            &nbsp;} else {   // 条件式が<span class='lookat' style='color: black'>false (偽)</span>なら
+            &nbsp;    // 処理2;
+            &nbsp;}
         li [ 処理1 ], [ 処理2 ]それぞれ処理が1文なら<span class='lookat'>{ }</span>を省略可能
         li また、<span class='lookat'>else</span>も使わない場合は省略する
     br
@@ -78,12 +78,13 @@
     p.title 比較演算子と論理演算子の組み合わせ
     ul
         li 論理演算子を用いることで複雑な条件式を作ることができる
-        code.code
-            | // n が0より小さい、または10以上なら
-            | if (n < 0 || n >= 10) ...
-            |
-            | // n が65以上、かつ80以下なら
-            | if (n >= 65 && n <= 80) ...
+        highlight-code(lang='cpp').
+            // n が0より小さい、または10以上なら
+            &nbsp;if (n < 0 || n >= 10) ...
+
+            &nbsp;// n が65以上、かつ80以下なら
+            &nbsp;if (n >= 65 && n <= 80) ...
+
 //-
     br
     v-divider

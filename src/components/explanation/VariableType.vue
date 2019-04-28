@@ -43,16 +43,17 @@
     ul
         li 関数の返り値である<span class='lookat'>return</span>は、<span class='lookat'>型</span>によって変わる
         li 主な書き方は以下の通り（ 下の表と組み合わせて ）
-        code.code
-            | < 型 > 関数名() {
-            |     ...
-            |     < return文 >
-            | }
+
+        highlight-code(lang='cpp').
+            &lt;type&gt;  関数名() {
+            &nbsp;    ...
+            &nbsp;    &lt;return 文&gt;
+            &nbsp;}
         br
         .table-general.scrollable
             table(border=1)
                 tr
-                    th 型
+                    th 型 &lt;type&gt;
                     th return文
                     th 例
                 tr
@@ -65,12 +66,10 @@
                     td return -1;
                 tr
                     td float
-                    td return <span class='lookat'>実数</span>;
-                    td return 0.1;
+                    td(rowspan=2) return <span class='lookat'>実数</span>;
+                    td(rowspan=2) return 0.1;
                 tr
                     td double
-                    td return <span class='lookat'>実数</span>;
-                    td return 0.1;
                 tr
                     td char
                     td return <span class='lookat'>文字</span>;
@@ -88,18 +87,21 @@
     p.title 変数の宣言 / 初期化
     ul
         li 変数は以下のように<span class='keyword'>宣言</span>する
-        code.code int hoge;
-        | <br><br>
+        highlight-code(lang='cpp').
+            int hoge;
+        br
 
         li <span class='keyword'>初期化</span>：変数宣言時に初期値を設定すること（代入演算子を用いる）
         li <span class='lookat'>=</span>：代入演算子
         li 数学の<span class='lookat'>=</span>（等しい）とは異なり、右辺のデータを左辺に<span class='marker'>代入する</span>という意味
-        code.code int fuga = 100;
-        | <br><br>
+        highlight-code(lang='cpp').
+            int fuga = 100;
+        br
 
-        li <span class='lookat'>&lt;型&gt;</span>の前に<span class='lookat'>const</span>をつけることで<span class='keyword'>定数</span>（変更不可能な変数）を宣言できる
-            | <br>&emsp;&emsp;また、定数を宣言するときは初期値を必ず設定する
-        code.code const float PI = 3.141592653;
+        li <span class='lookat'>型</span>の前に<span class='lookat'>const</span>をつけることで<span class='keyword'>定数</span>（変更不可能な変数）を宣言できる。
+            | また、定数を宣言するときは初期値を必ず設定する
+        highlight-code(lang='cpp').
+            const float PI = 3.141592653;
     br
 
     p.title キャスト
@@ -109,10 +111,11 @@
         .frame 暗黙型変換の優先順序　→　
             | <span class='lookat'>double</span> &gt; <span class='lookat'>float</span> &gt; <span class='lookat'>int</span> &gt; <span class='lookat'>char</span>
         li 明示的型変換は以下のように使われる
-            code.code
-                | // (型名)式
-                | double pi = 3.14;
-                | int num = (int)pi;
+
+        highlight-code(lang='cpp').
+            // (型名)式
+            &nbsp;double pi = 3.14;
+            &nbsp;int num = (int)pi;
 //-
     br
     v-divider
