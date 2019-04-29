@@ -6,8 +6,8 @@
     p.title 繰り返し処理
     ul
         li 繰り返し構文には<span class='lookat'>while</span>、<span class='lookat'>for</span>の2つがある
-        li 繰り返しは条件式が<span class='lookat'>true</span>の間<span class='lookat'>{ }</span>内の処理を行う <br>
-            | &emsp;&emsp;また、<span class='lookat'>{ }</span>内の処理が1文の場合、<span class='lookat'>{ }</span>省略可能
+        li 繰り返しは条件式が<span class='lookat'>true</span>の間<span class='lookat'>{ }</span>内の処理を行う。
+            | また、<span class='lookat'>{ }</span>内の処理が1文の場合、<span class='lookat'>{ }</span>省略可能
         br
         li 主な使い分けは以下の通り
 
@@ -39,7 +39,7 @@
 
             li.marker 繰り返し条件と比較する <br>
             | （このとき<span class='lookat'>i</span>が<span class='lookat'>0～9</span>と順にカウントしていくとちょうど10回になると考えるとよい） <br>
-            | <span class='lookat'>i</span>は<span class='lookat'>0～9</span>の値をとる => <span class='lookat'>i < 10</span>または<span class='lookat'>i <= 9</span>
+            | <span class='lookat'>i</span>は<span class='lookat'>0～9</span>の値をとる → <span class='lookat'>i < 10</span>または<span class='lookat'>i <= 9</span>
             v-divider
 
             li.marker 繰り返す処理 <br>
@@ -66,7 +66,7 @@
             .details-center
                 .caption.text-xs-center ● whileとforで同じことをするコード
                 highlight-code(lang='cpp').
-                    // while
+                    &nbsp;// while
                     &nbsp;int i;    // 宣言
                     &nbsp;i = 0;    // <span class='lookat' style='color: black'>初期化</span>
                     &nbsp;while (i < 10) {  // <span class='lookat' style='color: black'>条件式</span>
@@ -89,7 +89,7 @@
     ul
         li <span class='lookat'>()</span>内に<span class='keyword'>条件式</span>のみを記述する
         highlight-code(lang='cpp').
-            while ( 条件式 ) {
+            &nbsp;while ( 条件式 ) {
             &nbsp;    // 処理
             &nbsp;}
         li <span class='lookat'>while</span>と似た<span class='lookat'>do while</span>は topics として追加予定
@@ -100,22 +100,23 @@
         li <span class='lookat'>()</span>内に<span class='keyword'>初期化</span>、<span class='keyword'>条件式</span>、<span class='keyword'>増減式</span>を<span class='lookat'>;</span>で区切りながら記述する
         li 初期化、条件式、増減式は省略できる（ただし、<span class='lookat'>;</span>は記述する）
         highlight-code(lang='cpp').
-            for ( 初期化; 条件式; 増減式) {
+            &nbsp;for ( 初期化; 条件式; 増減式) {
             &nbsp;    // 処理
             &nbsp;}
+    br
 
     p.title 多重ループ（二重ループ）
     ul
         li 簡単に言うと、繰り返しの中でさらに繰り返し文を書くこと
         .caption.text-xs-center 例：九九表
         highlight-code(lang='cpp').
-            int i, j;
+            &nbsp;int i, j;
             &nbsp;for (i = 0; i <= 9; i++) {
             &nbsp;    for (j = 0; j <= 9; j++)
             &nbsp;        printf("%3d", i*j);
             &nbsp;    printf("\n");
             &nbsp;}
-        pre.exec-result
+        .exec-result
             |   1  2  3  4  5  6  7  8  9
             |   2  4  6  8 10 12 14 16 18
             |   3  6  9 12 15 18 21 24 27
@@ -125,8 +126,13 @@
             |   7 14 21 28 35 42 49 56 63
             |   8 16 24 32 40 48 56 64 72
             |   9 18 27 36 45 54 63 72 81
+    br
 
+    p.title break文 / continue文
+    ul
+        li
 
+    br
 
 //-
     br

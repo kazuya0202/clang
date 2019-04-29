@@ -4,26 +4,41 @@ v-layout.exp-frame3(fill-height column)
         h1.exp-top 解説ページ
         character-type.my-3
 
+        function.my-3
 
         br
         v-divider
         .prev-next-btn
-            v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame2" }' color='primary' flat) << prev. Exp-frame2
-            v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame4" }' color='primary' flat) next. Exp-frame4 >>
+            v-btn(:to='{name: "exp-frame2"}' color='primary' flat) << prev. Exp-frame2
+            v-btn(:to='{name: "exp-frame4"}' color='primary' flat) next. Exp-frame4 >>
 
+            //- v-btn(@click='scrollTopTo("exp-frame2")' color='primary' flat) << prev. Exp-frame2
+            //- v-btn(@click='scrollTopTo("exp-frame4")' color='primary' flat) next. Exp-frame4 >>
+
+//-
+    :to='{ name: "exp-frame2" }'
+    :to='{ name: "exp-frame4" }'
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
+import vueScroll from 'vue-scrollto';
 
 import CharacterType from '@/components/explanation/CharacterType.vue';
+import Function from '@/components/explanation/Function.vue';
 
 @Component({
     components: {
-        CharacterType,
+        CharacterType, Function,
     },
 })
-export default class ExpFrame3 extends Vue {}
+export default class ExpFrame3 extends Vue {
+
+    protected scrollTopTo = (rooter: string) => {
+        this.$scrollTo('body');
+        this.$router.push({name: rooter})
+    }
+}
 </script>
 
 <style lang='stylus' scoped>

@@ -54,7 +54,7 @@ ul > li::before
 // keyword marker / important word
 .keyword
     padding: .1rem .5rem
-    background: #82B1FF
+    background: #a5c7ff
     border-radius: 20px
 
 // summary frame
@@ -67,10 +67,11 @@ ul > li::before
 // important
 .lookat
     // background: #F48FB1
-    background: #ffa8c5
+    background: #ffc1d6
     border-radius: 5px
-    padding: .15rem .5rem
+    padding: .1rem .5rem
     margin: 0 .1rem
+    font-size: .9rem
 
 // result of source code
 .exec-result
@@ -81,6 +82,7 @@ ul > li::before
     margin: auto
     padding: 0 1rem
     border-radius: 10px
+    white-space: pre
 
 .exec-result::before
     content: '実行結果\A'
@@ -135,5 +137,5 @@ ul > li::before
 
 
 // change to monospace fonts
-code, table, pre, .lookat, .marker
+code, table, pre, .lookat, .prompt, .exec-result
     font-family: 'Roboto Mono', monospace, sans-serif

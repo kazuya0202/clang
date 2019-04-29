@@ -10,7 +10,7 @@
 
         li 文字型の使い方は以下の通り
         highlight-code(lang='cpp').
-            char c;
+            &nbsp;char c;
             &nbsp;char c2 = 'a';
 
         | <br><br>
@@ -19,13 +19,13 @@
         li 文字の表示 / 入力には<span class='lookat'>%c</span>を用いる
 
         highlight-code(lang='cpp').
-            printf("%c\n", 'a');
+            &nbsp;printf("%c\n", 'a');
             &nbsp;printf("%c = %d\n", 'a', 'a');
             &nbsp;printf("%c = %d\n", 97, 97);
         .exec-result
-            | a <br>
-            | a = 97 <br>
-            | a = 97 <br>
+            | a
+            | a = 97
+            | a = 97
 
         li アスキーコードで管理されているため、<span class='lookat'>%d</span>に<span class='lookat'>'a'</span>に渡すと10進数で表示される（同様にその逆も可能）
     br
@@ -67,18 +67,19 @@
 
         li 宣言 / 初期化は以下の通り
         highlight-code(lang='cpp').
-            char 変数名[要素数];
+            &nbsp;char 変数名[要素数];
 
             &nbsp;// 例
             &nbsp;char str[20];
             &nbsp;char name[8] = "abcde";
 
+            &nbsp;printf("%s", name);
             &nbsp;scanf("%s", str);
             &nbsp;scanf("%s", &str);   // エラー
 
-        li 宣言時に<span class='marker'>ダブルクォート(")</span>で囲むと初期化できる
+        li 宣言時のみ<span class='marker'>ダブルクォート(")</span>で初期化できる
         li 表示 / 入力には、<span class='lookat'>%s</span>を用いる
-            | <br>&emsp;&emsp;また、添え字はつけない（つけると1文字になってしまうから）
+            | <br>&emsp;&emsp;また、添え字はつけない（つけると1文字(char)になってしまうから）
         li <span class='lookat'>scanf()</span>の時、変数に<span class='lookat'>&</span>はつけない
             | <br>&emsp;&emsp;（なぜ必要ないのかは topics として追記予定）
 
@@ -113,13 +114,12 @@
     p.title 文字の配列と繰り返し
     ul
         li 配列と同じように繰り返しを使って、すべての要素に変更を加えることができる
-        li ただし、<span class='marker'>int型</span>などとは違い、文字の配列の場合は要素数に余裕を持つことが多いため、要素数-1まで繰り返すと値のない要素('\0')なども変更してしまう
         br
-        li そこで文字の配列では末尾の<span class='lookat'>'\0'</span>まで、すなわち<span class='lookat'>'\0'でない間</span>繰り返す
+        li 文字の配列では末尾の<span class='lookat'>'\0'</span>まで、すなわち<span class='lookat'>'\0'でない間</span>繰り返す
 
         .caption.text-xs-center 例：すべての文字を大文字にする
         highlight-code(lang='cpp').
-            int i;
+            &nbsp;int i;
             &nbsp;char str[10] = "Abc";
 
             &nbsp;// '\0'でない間繰り返す

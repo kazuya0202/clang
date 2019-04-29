@@ -1,7 +1,8 @@
 <template lang='pug'>
 v-app#app
     v-navigation-drawer(app temporary v-model='drawer')
-    v-menu(v-model='menu' :close-on-content-click='false' :nudge-width='250' offset-x)
+    v-menu(v-model='menu' :close-on-content-click='false' :nudge-width='250'
+            offset-x transition="slide-y-transition" lazy)
         template(#activator='{ on: menu }')
             v-btn(color='#1565C0' dark v-on='{ ...menu }' fixed top left fab small)
                 v-icon mdi-format-list-bulleted
@@ -83,6 +84,7 @@ v-app#app
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 
+
 @Component
 export default class App extends Vue {
     protected drawer = false;
@@ -97,6 +99,10 @@ export default class App extends Vue {
     protected currentExp = () =>
         (location.href.indexOf('exp') !== -1) ? 0
         : (location.href.indexOf('ques') !== -1) ? 1 : 2
+
+    protected async beforeUpdate() {
+        await this.$scrollTo('body');
+    }
 }
 </script>
 

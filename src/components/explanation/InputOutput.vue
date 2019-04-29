@@ -5,9 +5,12 @@
 
     p.title printf()
     ul
-        li 標準出力関数（読み方は「プリントエフ」）
-        li 主な形は<span class='lookat'>printf("XXX\n");</span>
-        | &emsp;&emsp;この場合、コンソール画面に<span class='prompt'><samp>XXX</samp></span>と出力される
+        li 標準出力関数（読み方は「<span class='marker'>プリントエフ</span>」）
+        li 主な形は以下の通り
+        highlight-code(lang='cpp').
+            printf("XXX\n");
+        .exec-result
+            | XXX
         li <span class='lookat'>\n</span>については次項に記載
     br
 
@@ -36,8 +39,12 @@
     p.title scanf()
     ul
         li 標準入力関数（読み方は「スキャンエフ」）
-        li 主な形は<span class='lookat'>scanf("%d", &x);</span>
+        li 主な形は以下の通り
+        highlight-code(lang='cpp').
+            scanf("%d", &x);
         | &emsp;&emsp;この場合、コンソールが入力待ち状態になり、入力することができる
+        | <br><br>
+
         li <span class='lookat'>char[]</span>型以外は<span class='lookat'>&</span>が必要
         li <span class='lookat'>%d</span>については次項に記載
     br
@@ -45,8 +52,7 @@
     p.title 変換指定子
     ul
         li <span class='lookat'>printf</span>や<span class='lookat'>scanf</span>を使うときに用いる
-        li 型によって違う
-        li <span class='marker'>%○</span>の形
+        li 「<span class='marker'>%○</span>」の形
         .table-general.scrollable
             table(border=1)
                 tr

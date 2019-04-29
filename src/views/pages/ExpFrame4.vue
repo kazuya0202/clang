@@ -10,13 +10,18 @@
         br
         v-divider
         .prev-next-btn
-            v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame3" }' color='primary' flat) << prev. Exp-frame3
-            //- v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame2" }' color='primary' flat) next. Exp-frame2 >>
+            v-btn(:to='{name: "exp-frame3"}' color='primary' flat) << prev. Exp-frame3
 
+            //- v-btn(@click='scrollTopTo("exp-frame3")' color='primary' flat) << prev. Exp-frame3
+            //- v-btn( :to='{ name: "exp-frame2" }' color='primary' flat) next. Exp-frame2 >>
+
+//-
+    :to='{ name: "exp-frame3" }'
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
+import vueScroll from 'vue-scrollto';
 
 import Structure from '@/components/explanation/Structure.vue';
 
@@ -25,7 +30,13 @@ import Structure from '@/components/explanation/Structure.vue';
         Structure,
     },
 })
-export default class ExpFrame4 extends Vue {}
+export default class ExpFrame4 extends Vue {
+
+    protected scrollTopTo = (rooter: string) => {
+        this.$scrollTo('body');
+        this.$router.push({name: rooter})
+    }
+}
 </script>
 
 <style lang='stylus' scoped>

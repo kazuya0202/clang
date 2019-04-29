@@ -30,7 +30,7 @@
     ul
         li 配列の使い方は以下の通り
         highlight-code(lang='cpp').
-            &lt;type&gt; 変数名[ 要素数 ];
+            &nbsp;型名 変数名[ 要素数 ];
 
             &nbsp;// 例
             &nbsp;int score[3];
@@ -41,7 +41,7 @@
         li [0] ～ [2] 以外の存在しない添え字にアクセスすることはできない
 
         highlight-code(lang='cpp').
-            // 代入
+            &nbsp;// 代入
             &nbsp;score[0] = 85;
             &nbsp;score[1] = 68;
 
@@ -55,10 +55,16 @@
         li 宣言時に<span class='lookat'>{ }</span>を用いて初期化することもできる
             | <br>&emsp;&emsp;また、初期化するときは要素数を省略しても自動的に要素が生成される
         highlight-code(lang='cpp').
-            int score[3] = { 85, 65, 91 };
+            &nbsp;int score[3] = { 85, 65, 91 };
 
             &nbsp;// 省略時
             &nbsp;int score[] = { 85, 65, 91 };
+
+        br
+        li 配列内すべてを<span class='marker'>同じ値で初期化</span>する場合は以下のように書ける
+
+        highlight-code(lang='cpp').
+            int score[100] = { 0 };
     br
 
     p.title 配列と繰り返し
@@ -67,7 +73,7 @@
             | 繰り返し文を用いて走査できる
         li 主に全要素に対して処理を行う場合は以下のようにする (whileは省略)
         highlight-code(lang='cpp').
-            for (i = 0; i < 要素数; i++) {
+            &nbsp;for (i = 0; i < 要素数; i++) {
             &nbsp;    // 処理   (変数名[i]でアクセス)
             &nbsp;}
     br
@@ -75,7 +81,7 @@
         summary 例：配列の要素の合計を求める
         .details-center
             highlight-code(lang='cpp').
-                int i;
+                &nbsp;int i;
                 &nbsp;int data[] = { 88, 92, 56, 67, 73 };
                 &nbsp;int sum = 0;   // 合計
 
@@ -85,6 +91,98 @@
                 &nbsp;printf("合計 = %d", sum);
             .exec-result
                 | 合計 = 387
+    br
+
+    p.title 二次元配列
+    ul
+        li 一次元配列（列）にさらに一次元（行）が加わったもの
+        li 行と列であらわされる表をイメージするとわかりやすい（一次元配列も「1 × N」の表と考えられる）
+        li <span class='marker'>添え字を2つ</span>つけることで各要素にアクセスする
+        br
+
+        li 3×5 の二次元配列は以下のように表せる
+        .table-array.scrollable
+            .caption.text-xs-center ● data[3][5] の構造
+            table(border=1)
+                tr
+                    th(rowspan=3).bg data
+                    th [0][0]
+                    th [0][1]
+                    th [0][2]
+                    th [0][3]
+                    th [0][4]
+                tr
+                    th [1][0]
+                    th [1][1]
+                    th [1][2]
+                    th [1][3]
+                    th [1][4]
+                tr
+                    th [2][0]
+                    th [2][1]
+                    th [2][2]
+                    th [2][3]
+                    th [3][4]
+    br
+
+    p.title 宣言 / 初期化
+    ul
+        li 二次元配列は以下のように宣言する
+        highlight-code(lang='cpp').
+            &nbsp;型名 変数名[ 行の要素数 ][ 列の要素数 ];
+
+            &nbsp;// 例
+            &nbsp;int table[3][5];
+
+        br
+        li 一次元追加されるたびに一番左に要素を追加していくことでできる
+        highlight-code(lang='cpp').
+            &nbsp;// 一次元
+            &nbsp;int table1[5];   // (1×)5の表
+
+            &nbsp;// 二次元
+            &nbsp;int table2[3][5];   // 3×5の表
+
+            &nbsp;// 三次元
+            &nbsp;int table[2][3][5];   // 3×5の表 + 奥行き2
+
+        br
+        li 初期化は、次元ごとに<span class='lookat'>{ }</span>で区切る
+        highlight-code(lang='cpp').
+            &nbsp;// 例
+            &nbsp;int score[2][3] = { { 53, 42, 82 }, { 64, 83, 76 } };
+        br
+
+        li ただし、以下のように行と列の対応がわかりやすいように書く方がよい
+        highlight-code(lang='cpp').
+            &nbsp;int score[2][3] = {
+            &nbsp;    { 53, 42, 82 },
+            &nbsp;    { 64, 83, 76 }
+            &nbsp;};
+
+        .table-array.scrollable
+            .caption.text-xs-center ● score[2][3] の構造
+            table(border=1)
+                tr
+                    th(rowspan=2).bg score
+                    td 53
+                    td 42
+                    td 82
+                tr
+                    td 64
+                    td 83
+                    td 76
+        br
+
+        li <span class='marker'>先頭の要素数だけ</span>省略できる
+        highlight-code(lang='cpp').
+            &nbsp;int array[][2] = { { 1, 2 }, { 3, 4 } };
+
+            &nbsp;int array[2][] = { { 1, 2 }, { 3, 4 } };   // エラー
+            &nbsp;int array[][] = { { 1, 2 }, { 3, 4 } };   // エラー
+
+
+
 
 </template>
 

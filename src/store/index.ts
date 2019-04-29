@@ -17,8 +17,8 @@ export default new Vuex.Store({
                     { name: 'exp-frame2', id: '#condition',      title: '条件' },
                     { name: 'exp-frame2', id: '#loop',           title: '繰り返し' },
                     { name: 'exp-frame2', id: '#array',          title: '配列' },
+                    { name: 'exp-frame3', id: '#function',       title: '関数' },
                     { name: 'exp-frame3', id: '#character-type', title: '文字' },
-                    // { name: 'exp-frame3', id: '#method',         title: '関数' },
 
                     { name: 'exp-frame4', id: '#structure',      title: '構造体' },
                 ],
@@ -34,6 +34,7 @@ export default new Vuex.Store({
         ],
 
     },
+
     mutations: {
 
     },

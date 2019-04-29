@@ -28,7 +28,7 @@
         br
 
         highlight-code(lang='cpp').
-            printf("%d\n", 10 % 5);
+            &nbsp;printf("%d\n", 10 % 5);
             &nbsp;printf("%d\n", 2 + 3 * 5);
         .exec-result
             samp 0<br>17
@@ -64,7 +64,7 @@
         br
 
         highlight-code(lang='cpp').
-            // 従来の四則演算と代入
+            &nbsp;// 従来の四則演算と代入
             &nbsp;sum = sum + x;
 
             &nbsp;// 複合代入
@@ -72,8 +72,10 @@
     br
 
     p.title 単項演算子
+    ul.frame
+        li インクリメント（1増やすこと）
+        li デクリメント（1減らすこと）
     ul
-        <span class='keyword'>単項演算子</span>： インクリメント（1増やすこと）/ デクリメント（1減らすこと）
         .table-general.scrollable
             table(border=1)
                 tr

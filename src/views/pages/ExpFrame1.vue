@@ -17,10 +17,15 @@ v-layout.exp-frame1(fill-height column)
         br
         v-divider
         .prev-next-btn
-            v-btn(v-scroll-to='"body"' :to='{ name: "Home" }' color='primary' flat) << prev. Home
-            v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame2" }' color='primary' flat) next. Exp-frame2 >>
+            v-btn(:to='{name: "Home"}' color='primary' flat) << prev. Home
+            v-btn(:to='{name: "exp-frame2"}' color='primary' flat) next. Exp-frame2 >>
 
+            //- v-btn(@click='scrollTopTo({name: "Home"})' color='primary' flat) << prev. Home
+            //- v-btn(@click='scrollTopTo({name: "exp-frame2"})' color='primary' flat) next. Exp-frame2 >>
 
+//-
+    :to='{ name: "Home" }'
+    :to='{ name: "exp-frame2" }'
 </template>
 
 <script lang='ts'>
@@ -29,6 +34,7 @@ v-layout.exp-frame1(fill-height column)
 */
 
 import { Component, Vue } from 'vue-property-decorator';
+import vueScroll from 'vue-scrollto';
 
 import Standard from '@/components/explanation/Standard.vue';
 import VariableType from '@/components/explanation/VariableType.vue';
@@ -41,7 +47,14 @@ import InputOutput from '@/components/explanation/InputOutput.vue';
         Operate, InputOutput,
     },
 })
-export default class ExpFrame1 extends Vue {}
+export default class ExpFrame1 extends Vue {
+
+    protected scrollTopTo = (rooter: object) => {
+        console.log(rooter);
+        this.$scrollTo('body');
+        this.$router.push(rooter);
+    }
+}
 </script>
 
 <style lang='stylus' scoped>

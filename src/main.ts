@@ -11,13 +11,12 @@ const scrollTo = require('vue-scrollto');
 Vue.use(scrollTo);
 
 // Syntax Highlight
-// vs dark-mode (some change)
 import VueHighlightJS from 'vue-highlight.js';
 
-import 'highlight.js/styles/vs2015-decoration.css';
+// vs2015 dark (some change)
+import '@/assets/vs2015-deco.css';
 const cpp = require('highlight.js/lib/languages/cpp.js');
-const javascript = require('highlight.js/lib/languages/javascript.js');
-Vue.use(VueHighlightJS, { languages: { cpp, javascript } });
+Vue.use(VueHighlightJS, { languages: { cpp } });
 
 // styles
 import './components/stylus-pane/main.styl';

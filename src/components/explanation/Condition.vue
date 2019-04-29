@@ -1,27 +1,39 @@
 <template lang='pug'>
 #condition
     .unit-title
-        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold 条件分岐
+        v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold 条件
 
     p.title 条件
     ul
-        li <span class='lookat'>if</span>（もしも～なら）を用いる
+        li <span class='lookat'>if</span>（もしも～なら）を用いて条件分けする
         li 主な書き方は以下の通り
         highlight-code(lang='cpp').
-            if ( 条件式 ) {   // 条件式が<span class='lookat' style='color: black'>true (真)</span>なら
-            &nbsp;    // 処理1;
-            &nbsp;} else {   // 条件式が<span class='lookat' style='color: black'>false (偽)</span>なら
-            &nbsp;    // 処理2;
+            &nbsp;if ( 条件式 ) {
+            &nbsp;    // 条件式が true(真)のときの処理
             &nbsp;}
-        li [ 処理1 ], [ 処理2 ]それぞれ処理が1文なら<span class='lookat'>{ }</span>を省略可能
-        li また、<span class='lookat'>else</span>も使わない場合は省略する
+        li 処理が1文なら<span class='lookat'>{ }</span>を省略可能
+
+        br
+        .frame.
+            ★ 条件式が<span class='lookat'>false(偽)</span>のとき → <span class='lookat'>else</span> <br>
+            ★ <span class='lookat'>if</span>の条件以外でさらに条件があるとき → <span class='lookat'>else if</span>
+        | &emsp;&emsp;を用いて複雑な条件を評価することもできる
+
+        highlight-code(lang='cpp').
+            &nbsp;if ( 条件式 1 ) {
+            &nbsp;    // 条件式1が true(真)のときの処理
+            &nbsp;} else if ( 条件式 2 ) {
+            &nbsp;    // 条件式1が false(偽)かつ条件式2が true(真)のときの処理
+            &nbsp;} else {
+            &nbsp;    // 条件式1も条件式2も false(偽)のときの処理
+            &nbsp;}
     br
 
     p.title 条件式
     ul
         li 条件式には、<span class='keyword'>比較演算子</span>と<span class='keyword'>論理演算子</span>が使われる
         li 条件式の結果は<span class='lookat'>true (真)</span>、または<span class='lookat'>false (偽)</span>が返される
-        li <span class='marker'>bool</span>型の変数に条件式の結果を記憶することができる
+        li <span class='marker'>bool型</span>の変数に条件式の結果を記憶することができる
     br
 
     p.title 比較演算子
@@ -79,7 +91,7 @@
     ul
         li 論理演算子を用いることで複雑な条件式を作ることができる
         highlight-code(lang='cpp').
-            // n が0より小さい、または10以上なら
+            &nbsp;// n が0より小さい、または10以上なら
             &nbsp;if (n < 0 || n >= 10) ...
 
             &nbsp;// n が65以上、かつ80以下なら

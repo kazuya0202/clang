@@ -15,8 +15,8 @@
         li <span class='keyword'>main関数</span>と呼ばれ、プログラム実行時、最初に呼ばれる関数
         br
         li <span class='lookat'>int</span>：返り値の型を表す / 関数の最後に<span class='lookat'>int</span>型の値を返すという意味
-        li <span class='lookat'>void</span>：英語で空という意味で引数がないということを表している
-            | <br>&emsp;&emsp; また、<span class='lookat'>void</span>は省略でき、<span class='lookat'>int main()</span>とも書ける
+        li <span class='lookat'>void</span>：英語で空という意味で引数がないということを表している。
+            | また、<span class='lookat'>void</span>は省略でき、<span class='lookat'>int main()</span>とも書ける
     br
 
     p.title { }
@@ -28,37 +28,35 @@
     p.title ；
     ul
         li <span class='keyword'>セミコロン</span>と呼ばれる
-        li 基本的に処理の終わりにつける（<span class='lookat'>if</span>や<span class='lookat'>for</span>の後にはつけてはいけない）
+        li 基本的に処理の終わりにつける（基本的に<span class='lookat'>if</span>や<span class='lookat'>for</span>の後にはつけない）
     br
 
     p.title コメント
     ul
         li <span class='keyword'>コメント</span>：プログラム内に処理の説明やメモなどを書くことができる
-        li コメントはコンパイル時に削除される
+
         br
         li <span class='marker'>1行コメント</span>：<span class='lookat'>//</span>の後がすべてコメントとみなされる（ただし、1行のみ）
 
         highlight-code(lang='cpp').
-            // 変数の宣言
-            &nbsp;int hoge;
+            // コメント
         li <span class='marker'>複数行コメント</span>：<span class='lookat'>/*</span>と<span class='lookat'>*/</span>で囲まれた部分がコメントとみなされ、複数行書くことができる
 
         highlight-code(lang='cpp').
-            /*
-            &nbsp;　変数の宣言
-            &nbsp;　max: 最大値を記憶する変数
+            &nbsp;/*
+            &nbsp;  コメント1
+            &nbsp;  コメント2
             &nbsp;*/
-            &nbsp;int max;
     br
 
     p.title return
     ul
-        li 一般的に関数の終わりにある処理で、この関数が呼ばれたときに返すという意味
-            | <br>&emsp;&emsp;<span class='keyword'>返り値</span>と呼ばれている
-        li <span class='marker'>int main(){..}</span>ではmain関数の型が<span class='lookat'>int</span>であるため、<span class='marker'>整数(int)型</span>の<span class='lookat'>0</span>が返される
+        li.
+            一般的に関数の終わりにあり、この関数が呼ばれたときに値を返すという意味。
+            returnによって返される値を<span class='keyword'>返り値</span>または、<span class='keyword'>返却値</span>と呼ばれている
         br
         li main関数では<span class='lookat'>return 0;</span>と書くのが一般的だが、その他の関数を使うときは
-            | <span class='lookat'>return false;</span>や<span class='lookat'>return abcde;</span>などの<span class='lookat'>bool</span>型、<span class='lookat'>char[]</span>型
+            | <span class='lookat'>return false;</span>や<span class='lookat'>return 'A';</span>などの<span class='lookat'>bool</span>型、<span class='lookat'>char</span>型
             | を返すことも可能であるということは頭に入れておくべき
             | （<span class='lookat'>return 0;</span>だけが<span class='keyword'>return</span>と固定観念を持ってはダメ）
 

@@ -26,8 +26,40 @@ v-layout#Home(fill-height column)
             | ページ遷移は左上のボタン or 下のボタンから
 
         .to-btn.my-3
-            v-btn(v-scroll-to='"body"' :to='{ name: "exp-frame1" }' color='success' flat).mx-2.font-weight-bold 解説ページ >>
-            v-btn(v-scroll-to='"body"' :to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold 練習問題ページ >>
+            v-btn(:to='{ name: "exp-frame1" }' color='success' flat).mx-2.font-weight-bold 解説ページ >>
+            v-btn(:to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold 練習問題ページ >>
+            v-btn(:to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold Topics >>
+
+        v-divider
+        .unit-title
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 べんきょうのしかた
+        .frame.mb-3
+            ul
+                li これで合ってる？ の疑問は質問OK
+                li なんで？ の疑問は他人に聞かない
+                | &emsp;&emsp;→ 全て他人に教えてもらわない！ <br>
+                | &emsp;&emsp;→ 聞くより先に自分で調べる <br>
+                | &emsp;&emsp;→ <span class='marker'>自分で考えて理解する</span>ことが大切！ <br>
+                br
+
+                li わからないことは「参考書・ネット」ですぐに調べる
+                li 例）for文の書き方がわからない！
+                | &emsp;&emsp;→ 「for　c言語」などで検索 <br>
+                br
+
+                li 参考書を見る・紙に書くだけじゃダメ！
+                | &emsp;&emsp;→ プログラムはコンピュータでしか動かない <br>
+                br
+
+                li <span class='marker'>実際に書いて動かしてみる</span>
+                | &emsp;&emsp; 1. まずは参考書の例を写して実行する <br>
+                | &emsp;&emsp; 2. 実行結果とプログラムを見て仕組みを理解する <br>
+                | &emsp;&emsp; 3. プログラムを少し変えてその時の挙動を確かめてみる <br>
+                br
+
+                li 授業のスピードに合わせる必要はない！
+                | &emsp;&emsp;→ 参考書を見て自分で先に進もう！ <br>
+
 
         v-divider
         .unit-title
@@ -44,11 +76,18 @@ v-layout#Home(fill-height column)
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
+import vueScroll from 'vue-scrollto';
 
 @Component({
     components: {},
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+
+    protected scrollTopTo = (rooter: string) => {
+        this.$scrollTo('body');
+        this.$router.push({name: rooter})
+    }
+}
 </script>
 
 <style lang='stylus'>
@@ -129,5 +168,12 @@ html
         width: 100%
         background: #FFE0B2
         border-radius: 20px
+
+    .frame
+        // margin: 2rem
+        width: fit-content
+        margin: auto
+        padding: 1rem 1.2rem 1rem 0
+        border: solid 3px pink
 
 </style>
