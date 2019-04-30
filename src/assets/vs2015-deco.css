@@ -5,6 +5,7 @@
 
 .hljs {
   display: block;
+  white-space: pre;
   overflow-x: auto;
   padding: 0.5em;
   background: #1E1E1E;
@@ -22,10 +23,10 @@
   text-decoration: underline;
 }
 
-.hljs-built_in,
-.hljs-type {
+/* .hljs-built_in, */
+/* .hljs-type { */
   /*color: #4EC9B0;*/
-}
+/* } */
 
 .hljs-number,
 .hljs-class {

@@ -29,6 +29,12 @@ export default new Router({
         },
 
 
+        {   // Topics
+            path: '/topics1', name: 'topics-frame1',
+            component: () => import('@/views/pages/TopicsFrame1.vue'),
+        },
+
+
 
         {   // Question
             path: `/ques1`, name: 'ques-frame1',

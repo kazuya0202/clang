@@ -49,7 +49,8 @@ ul > li::before
 
 .details-center
     margin: auto
-    width: fit-content
+    *
+        max-width: 100%
 
 // keyword marker / important word
 .keyword
@@ -77,8 +78,8 @@ ul > li::before
 .exec-result
     width: fit-content
     min-width: 50%
+    max-width: 85%
     background: #B39DDB
-    // margin: .5rem 0
     margin: auto
     padding: 0 1rem
     border-radius: 10px

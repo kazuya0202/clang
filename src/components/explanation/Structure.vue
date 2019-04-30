@@ -13,7 +13,7 @@
         .details-center
             .caption.text-xs-center ● 変数だけで管理する場合
             highlight-code(lang='cpp').
-                int main() {
+                &nbsp;int main() {
                 &nbsp;    // aさんのデータ
                 &nbsp;    char aName[20];  int aAge;
                 &nbsp;    double aHeight;  double aWeight;
@@ -28,7 +28,7 @@
 
             .caption.text-xs-center ● 構造体で管理する場合
             highlight-code(lang='cpp').
-                typedef struct person_data {
+                &nbsp;typedef struct person_data {
                 &nbsp;    char name[20];
                 &nbsp;    int age;
                 &nbsp;    double height;
@@ -71,7 +71,7 @@
         br
         li main関数内では以下のように使う
         highlight-code(lang='cpp').
-            int main() {
+            &nbsp;int main() {
             &nbsp;    struct 構造体名 変数名;
 
             &nbsp;    // 例
@@ -83,7 +83,7 @@
         li structは主に<span class='lookat'>typedef</span>を使った宣言方法が使われる
             | （struct の付け忘れなどを防ぐためにtypedefを用いた定義方法を使うべき）
         highlight-code(lang='cpp').
-            // typedef の例
+            &nbsp;// typedef の例
             &nbsp;typedef int integer;
 
             &nbsp;integer num;   // num は int型と同じ
@@ -92,7 +92,7 @@
         br
         li これを利用して<span class='lookat'>struct person_data</span>を<span class='lookat'>person</span>として型を定義する
         highlight-code(lang='cpp').
-            typedef struct 構造体名 {
+            &nbsp;typedef struct 構造体名 {
             &nbsp;    // メンバ変数
             &nbsp;} 型名;
 
@@ -112,23 +112,25 @@
         li 構造体のメンバ変数は、structで宣言した<span class='lookat'>変数名.メンバ変数名</span>でアクセスする
             | （この<span class='lookat'>.</span>を<span class='marker'>ドット演算子</span>と呼ぶ）
         highlight-code(lang='cpp').
-            typedef struct person_data {
+            &nbsp;typedef struct person_data {
             &nbsp;    char name[20];
             &nbsp;    int age;
             &nbsp;} person;
 
             &nbsp;int main() {
             &nbsp;    person aoba = { "涼風青葉", 18 };
-            &nbsp;    printf("%s (%d)\n", aoba.name, aoba.age);
-
             &nbsp;    person kou;
             &nbsp;    scanf("%s", kou.name);   // 八神コウ
             &nbsp;    scanf("%s", &kou.age);   // 25
+
+            &nbsp;    printf("%s (%d)\n", aoba.name, aoba.age);
             &nbsp;    printf("%s (%d)\n", kou.name, kou.age);
             &nbsp;}
-        .exec-result
-            | 涼風青葉 (18) <br>
-            | 八神コウ (25)
+        .exec-result.
+            八神コウ ↲
+            25 ↲
+            涼風青葉 (18)
+            八神コウ (25)
         br
 
 

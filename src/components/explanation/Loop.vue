@@ -11,7 +11,7 @@
         br
         li 主な使い分けは以下の通り
 
-        .table-general.scrollalbe
+        .table-general.scrollable
             table(border=1)
                 tr
                     th 構文

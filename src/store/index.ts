@@ -19,7 +19,6 @@ export default new Vuex.Store({
                     { name: 'exp-frame2', id: '#array',          title: '配列' },
                     { name: 'exp-frame3', id: '#function',       title: '関数' },
                     { name: 'exp-frame3', id: '#character-type', title: '文字' },
-
                     { name: 'exp-frame4', id: '#structure',      title: '構造体' },
                 ],
             },
@@ -29,6 +28,14 @@ export default new Vuex.Store({
                 action: 'mdi-view-grid',
                 items: [
                     { name: 'ques-frame1', id: '#io-ques', title: '入出力' },
+                ],
+            },
+
+            {
+                title: 'トピック',
+                action: 'mdi-view-grid',
+                items: [
+                    { name: 'topics-frame', id: '#topics1', title: 'summary' },
                 ],
             },
         ],

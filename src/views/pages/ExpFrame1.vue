@@ -34,7 +34,6 @@ v-layout.exp-frame1(fill-height column)
 */
 
 import { Component, Vue } from 'vue-property-decorator';
-import vueScroll from 'vue-scrollto';
 
 import Standard from '@/components/explanation/Standard.vue';
 import VariableType from '@/components/explanation/VariableType.vue';
@@ -47,14 +46,7 @@ import InputOutput from '@/components/explanation/InputOutput.vue';
         Operate, InputOutput,
     },
 })
-export default class ExpFrame1 extends Vue {
-
-    protected scrollTopTo = (rooter: object) => {
-        console.log(rooter);
-        this.$scrollTo('body');
-        this.$router.push(rooter);
-    }
-}
+export default class ExpFrame1 extends Vue {}
 </script>
 
 <style lang='stylus' scoped>

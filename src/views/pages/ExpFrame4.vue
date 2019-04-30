@@ -21,7 +21,6 @@
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
-import vueScroll from 'vue-scrollto';
 
 import Structure from '@/components/explanation/Structure.vue';
 
@@ -30,13 +29,7 @@ import Structure from '@/components/explanation/Structure.vue';
         Structure,
     },
 })
-export default class ExpFrame4 extends Vue {
-
-    protected scrollTopTo = (rooter: string) => {
-        this.$scrollTo('body');
-        this.$router.push({name: rooter})
-    }
-}
+export default class ExpFrame4 extends Vue {}
 </script>
 
 <style lang='stylus' scoped>

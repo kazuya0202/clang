@@ -28,11 +28,11 @@ v-layout#Home(fill-height column)
         .to-btn.my-3
             v-btn(:to='{ name: "exp-frame1" }' color='success' flat).mx-2.font-weight-bold 解説ページ >>
             v-btn(:to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold 練習問題ページ >>
-            v-btn(:to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold Topics >>
+            v-btn(:to='{ name: "topics-frame1" }' color='success' flat).mx-2.font-weight-bold Topics >>
 
         v-divider
         .unit-title
-            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 べんきょうのしかた
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 べんきょうのしかた（？）
         .frame.mb-3
             ul
                 li これで合ってる？ の疑問は質問OK
@@ -76,18 +76,11 @@ v-layout#Home(fill-height column)
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
-import vueScroll from 'vue-scrollto';
 
 @Component({
     components: {},
 })
-export default class Home extends Vue {
-
-    protected scrollTopTo = (rooter: string) => {
-        this.$scrollTo('body');
-        this.$router.push({name: rooter})
-    }
-}
+export default class Home extends Vue {}
 </script>
 
 <style lang='stylus'>

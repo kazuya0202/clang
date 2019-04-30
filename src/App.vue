@@ -83,7 +83,7 @@ v-app#app
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
-
+import scrollTo from 'vue-scrollto';
 
 @Component
 export default class App extends Vue {

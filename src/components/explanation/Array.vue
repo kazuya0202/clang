@@ -8,7 +8,7 @@
             | <br>&emsp;&emsp;（学生のテスト点など）
         li 配列は<span class='lookat'>[0] ～ [要素数-1]</span>で構成される
 
-        .table-array.scrollalbe
+        .table-array.scrollable
             table(border=1)
                 caption.caption ● 配列の構造
                 tr
