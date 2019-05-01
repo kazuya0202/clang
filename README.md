@@ -1,1 +1,1 @@
-# Clang learning (仮)
+# Clang learning
