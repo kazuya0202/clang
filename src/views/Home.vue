@@ -7,7 +7,8 @@ v-layout#Home(fill-height column)
             v-icon(color='red' large) mdi-language-cpp
             v-icon(color='red' large) mdi-language-csharp
 
-        h3(class='text-sm-center' style='text-decoration: underline') C言語学習サイト（仮） ｜ C言語復讐サイト（決定）
+        h3(class='text-sm-center' style='text-decoration: underline') C言語復習サイト（仮）
+
         v-card(class='text-sm-center' color='#8bc440' ).pa-4.ma-3.font-weight-black.headline
             v-icon(color='#7E57C2').mx-2 mdi-visual-studio-code
             | C言語 <きほんのきほん>
