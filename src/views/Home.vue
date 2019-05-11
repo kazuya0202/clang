@@ -7,10 +7,12 @@ v-layout#Home(fill-height column)
             v-icon(color='red' large) mdi-language-cpp
             v-icon(color='red' large) mdi-language-csharp
 
-        h3(class='text-sm-center' style='text-decoration: underline') C言語学習サイト（仮） ｜ C言語復讐サイト（決定）
+        h3(class='text-sm-center' style='text-decoration: underline')
+
         v-card(class='text-sm-center' color='#8bc440' ).pa-4.ma-3.font-weight-black.headline
             v-icon(color='#7E57C2').mx-2 mdi-visual-studio-code
-            | C言語 <きほんのきほん>
+            | C言語のまとめ<br>
+            .subheading.font-italic - Summary of C language -
 
         .icon-elem
             v-icon(:size='20') mdi-pencil-plus
@@ -18,7 +20,7 @@ v-layout#Home(fill-height column)
 
         br
         .unit-title
-            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 ほーむ
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4 HOME
 
         v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold.my-3
             | スマートフォンは横画面がおすすめ
@@ -26,13 +28,13 @@ v-layout#Home(fill-height column)
             | ページ遷移は左上のボタン or 下のボタンから
 
         .to-btn.my-3
-            v-btn(:to='{ name: "exp-frame1" }' color='success' flat).mx-2.font-weight-bold 解説ページ >>
-            v-btn(:to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold 練習問題ページ >>
-            v-btn(:to='{ name: "topics-frame1" }' color='success' flat).mx-2.font-weight-bold Topics >>
+            v-btn(:to='{ name: "exp-frame1" }' color='success' flat).mx-2.font-weight-bold 解説ページ &gt;&gt;
+            v-btn(:to='{ name: "ques-frame1" }' color='success' flat).mx-2.font-weight-bold 練習問題ページ &gt;&gt;
+            v-btn(:to='{ name: "topics-frame1" }' color='success' flat).mx-2.font-weight-bold Topics &gt;&gt;
 
         v-divider
         .unit-title
-            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 べんきょうのしかた（？）
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 How to study
         .frame.mb-3
             ul
                 li これで合ってる？ の疑問は質問OK
@@ -43,11 +45,11 @@ v-layout#Home(fill-height column)
                 br
 
                 li わからないことは「参考書・ネット」ですぐに調べる
-                li 例）for文の書き方がわからない！
+                li 例）for文の書き方がわからない
                 | &emsp;&emsp;→ 「for　c言語」などで検索 <br>
                 br
 
-                li 参考書を見る・紙に書くだけじゃダメ！
+                li 参考書を眺めるだけ・紙に書くだけじゃダメ！
                 | &emsp;&emsp;→ プログラムはコンピュータでしか動かない <br>
                 br
 
@@ -63,13 +65,13 @@ v-layout#Home(fill-height column)
 
         v-divider
         .unit-title
-            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 こめんと
+            v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-4.my-3 Comment
         v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold
-            | <span class='marker'>C言語をやったことがあるけどよくわからない人</span>向けのため、理解を深める程度に考えてください
+            | まとめなので、<span class='marker'>C言語をやったことがあるけどよくわからない人</span>向けです。理解を深める程度に考えてください。
         v-card(class='text-sm-center' color='#B3E5FC' style='width: 65%; margin: auto' flat).pa-2.font-weight-bold.my-3
-            | 「C言語教えて！」の言葉を断れない人！そのことなら"このサイトに書いてあるよ"で終わらせてしまえ！！という思いで書いてます
+            | 「C言語教えて！」の言葉を断れない人！そのことなら"このサイトに書いてあるよ"で終わらせてしまえ！！という思いで書いてます。
         v-card(class='text-sm-center' color='#80DEEA' style='width: 70%; margin: auto' flat).pa-2.font-weight-bold
-            | 追記はある程度全体が完成したら書き始める予定
+            | 追記はある程度全体が完成したら書き始める予定。
 
 
 </template>
@@ -168,5 +170,7 @@ html
         margin: auto
         padding: 1rem 1.2rem 1rem 0
         border: solid 3px pink
+        border-radius: 15px
+        background: #f9f4f9
 
 </style>

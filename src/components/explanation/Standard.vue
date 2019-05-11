@@ -3,6 +3,17 @@
     .unit-title
         v-chip(color='#CE93D8' text-color='#7B1FA2' selected outline).px-5.py-3.title.font-weight-bold C言語のきほん
 
+    br
+    highlight-code(lang='cpp').
+        &nbsp;#include &lt;stdio.h&gt;
+        &nbsp;// main 関数
+        &nbsp;int main(void) {
+
+        &nbsp;    return 0;
+        &nbsp;}
+    p.text-xs-center ● プログラムの基本形
+    br
+
     p.title #include &lt;stdio.h&gt;
     ul
         li 標準入出力（＝ 表示、入力）をするために必要なもの
@@ -21,7 +32,7 @@
 
     p.title { }
     ul
-        li <span class='lookat'>{ }</span>で囲まれた部分は<span class='keyword'>ブロック</span class='lookat'>と呼ばれる
+        li <span class='lookat'>{ }</span>（中括弧）で囲まれた部分は<span class='keyword'>ブロック</span class='lookat'>と呼ばれる
         li <span class='marker'>関数</span>や<span class='marker'>if</span>, <span class='marker'>for</span>などの処理が複数行にわたるときに用いられる
     br
 
